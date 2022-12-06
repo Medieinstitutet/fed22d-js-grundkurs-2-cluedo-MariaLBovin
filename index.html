@@ -8,8 +8,59 @@
   </head>
   <body>
     <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
+       <!-- Jag behöver:
+        En main-div till bakgrundsbild
+        Sid 1: 
+        En section till game-intro
+        En knapp till Börja spela
+        Sid 2:
+        En övergripande section för allt innehåll
+        6 articles för personerna - stylas med grid
+        6 articles för platserna -  stylas med grid
+        6 articles för vapnen -stylas med grid 
+        En knapp för att testa mina val
+        Sid 3:
+        En övergripande section för allt innehåll på sid 3
+        En article för att visa antal rätt ALT Du har vunnit, grattis!
+        En knapp för att spela igen -->
+        <section class="startpage">
+          <article class="game-intro">
+              <h1>Välkommen till Gullarängen!</h1>
+            <button class="begin-game">Börja spela</button>
+          </article>
+        </section>
+      <section class="selection-page">
+        <div class="all-killers">
+          <div class="killer-1">1</div>
+          <div class="killer-2">2</div>
+          <div class="killer-3">3</div>
+          <div class="killer-4">4</div>
+          <div class="killer-5">6</div>
+          <div class="killer-6">6</div>
+        </div> 
+        <div class="all-places">
+          <div class="place-1">1</div>
+          <div class="place-2">2</div>
+          <div class="place-3">3</div>
+          <div class="place-4">4</div>
+          <div class="place-5">5</div>
+          <div class="place-6">6</div>
+        </div> 
+          <div class="all-weapons">
+          <div class="weapon-1">1</div>
+          <div class="weapon-2">2</div>
+          <div class="weapon-3">3</div>
+          <div class="weapon-4">4</div>
+          <div class="weapon-5">5</div>
+          <div class="weapon-6">6</div>
+        </div> 
+      </section>
+      <section class="result-page">
+        <article class="result">
+          <h2>Bra försök!</h2>
+         <button class="play-again">Spela igen</button> 
+        </article>
+      </section>
     </main>
 
     <!-- TODO

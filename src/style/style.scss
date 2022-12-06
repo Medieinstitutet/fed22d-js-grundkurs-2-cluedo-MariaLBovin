@@ -17,48 +17,78 @@
   text-size-adjust: 100%;
 }
 
-// TODO: Radera mig! Jag är bara ett exempel.
-main {
-  padding: 20px;
+.all-killers {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "killer-1 killer-2 killer-3"
+    "killer-4 killer-5 killer-6";
+
+.killer-1 { grid-area: killer-1; }
+.killer-2 { grid-area: killer-2; }
+.killer-3 { grid-area: killer-3; }
+.killer-4 { grid-area: killer-4; }
+.killer-5 { grid-area: killer-5; }
+.killer-6 { grid-area: killer-6; }
+
+
 }
 
-.app {
-  margin-block: 20px;
-  display: flex;
-  gap: 20px;
-  justify-content: space-around;
+.all-killers div {
+  height: 15vh;
+  width: 30vw;
+  outline: solid white 1px;
+}
 
-  .card {
-    $card-size: 250px;
+.all-places {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  margin-top: 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "place-1 place-2 place-3"
+    "place-4 place-5 place-6";
 
-    width: 0.6413 * $card-size;
-    height: $card-size;
-    cursor: pointer;
-    background: #102a3f;
-    border-radius: 8px;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+.place-1 { grid-area: place-1; }
+.place-2 { grid-area: place-2; }
+.place-3 { grid-area: place-3; }
+.place-4 { grid-area: place-4; }
+.place-5 { grid-area: place-5; }
+.place-6 { grid-area: place-6; }
 
-    .front {
-      font-size: rem(50px);
-    }
+}
 
-    .back {
-      display: none;
-    }
+.all-places div {
+  height: 15vh;
+  width: 30vw;
+  outline: solid white 1px;
+}
 
-    &.visible {
-      .front {
-        display: none;
-      }
+.all-weapons {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  margin-top: 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "weapon-1 weapon-2 weapon-3"
+    "weapon-4 weapon-5 weapon-6";
 
-      .back {
-        display: block;
-      }
-    }
-  }
+.weapon-1 { grid-area: weapon-1; }
+.weapon-2 { grid-area: weapon-2; }
+.weapon-3 { grid-area: weapon-3; }
+.weapon-4 { grid-area: weapon-4; }
+.weapon-5 { grid-area: weapon-5; }
+.weapon-6 { grid-area: weapon-6; }
+
+
+}
+
+.all-weapons div {
+  height: 15vh;
+  width: 30vw;
+  outline: solid white 1px;
 }

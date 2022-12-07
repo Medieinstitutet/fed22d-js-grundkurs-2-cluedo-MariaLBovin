@@ -1,73 +1,77 @@
 <!DOCTYPE html>
-<html lang="sv"> 
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
-  </head>
-  <body>
-    <main>
-       <!-- Jag behöver:
-        En main-div till bakgrundsbild
-        Sid 1: 
-        En section till game-intro
-        En knapp till Börja spela
-        Sid 2:
-        En övergripande section för allt innehåll
-        6 articles för personerna - stylas med grid
-        6 articles för platserna -  stylas med grid
-        6 articles för vapnen -stylas med grid 
-        En knapp för att testa mina val
-        Sid 3:
-        En övergripande section för allt innehåll på sid 3
-        En article för att visa antal rätt ALT Du har vunnit, grattis!
-        En knapp för att spela igen -->
-        <section class="startpage">
-          <article class="game-intro">
-              <h1>Välkommen till Gullarängen!</h1>
-            <button class="begin-game">Börja spela</button>
-          </article>
-        </section>
-      <section class="selection-page">
-        <div class="all-killers">
-          <div class="killer-1">1</div>
-          <div class="killer-2">2</div>
-          <div class="killer-3">3</div>
-          <div class="killer-4">4</div>
-          <div class="killer-5">6</div>
-          <div class="killer-6">6</div>
-        </div> 
-        <div class="all-places">
-          <div class="place-1">1</div>
-          <div class="place-2">2</div>
-          <div class="place-3">3</div>
-          <div class="place-4">4</div>
-          <div class="place-5">5</div>
-          <div class="place-6">6</div>
-        </div> 
-          <div class="all-weapons">
-          <div class="weapon-1">1</div>
-          <div class="weapon-2">2</div>
-          <div class="weapon-3">3</div>
-          <div class="weapon-4">4</div>
-          <div class="weapon-5">5</div>
-          <div class="weapon-6">6</div>
-        </div> 
-      </section>
-      <section class="result-page">
-        <article class="result">
-          <h2>Bra försök!</h2>
-         <button class="play-again">Spela igen</button> 
-        </article>
-      </section>
-    </main>
+<html lang="sv">
+<!-- TODO: glöm ej att byta språk här -->
 
-    <!-- TODO
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt</title>
+</head>
+
+<body>
+  <main>
+    <!-- Jag behöver:
+     En main-div till bakgrundsbild
+     Sid 1: 
+     En section till game-intro
+     En knapp till Börja spela
+     Sid 2:
+     En övergripande section för allt innehåll
+     6 articles för personerna - stylas med grid
+     6 articles för platserna -  stylas med grid
+     6 articles för vapnen -stylas med grid 
+     En knapp för att testa mina val
+     Sid 3:
+     En övergripande section för allt innehåll på sid 3
+     En article för att visa antal rätt ALT Du har vunnit, grattis!
+     En knapp för att spela igen -->
+     <section class="startpage">
+       <article class="game-intro">
+           <h1>Välkommen till Gullarängen!</h1>
+         <button class="begin-game">Börja spela</button>
+       </article>
+     </section>
+   <section class="selection-page">
+     <div class="all-killers">
+       <div class="killer-1">1</div>
+       <div class="killer-2">2</div>
+       <div class="killer-3">3</div>
+       <div class="killer-4">4</div>
+       <div class="killer-5">6</div>
+       <div class="killer-6">6</div>
+     </div> 
+     <div class="all-places">
+       <div class="place-1">1</div>
+       <div class="place-2">2</div>
+       <div class="place-3">3</div>
+       <div class="place-4">4</div>
+       <div class="place-5">5</div>
+       <div class="place-6">6</div>
+     </div> 
+       <div class="all-weapons">
+       <div class="weapon-1">1</div>
+       <div class="weapon-2">2</div>
+       <div class="weapon-3">3</div>
+       <div class="weapon-4">4</div>
+       <div class="weapon-5">5</div>
+       <div class="weapon-6">6</div>
+     </div> 
+   </section>
+   <section class="result-page">
+     <article class="result">
+       <h2>Bra försök!</h2>
+      <button class="play-again">Spela igen</button> 
+     </article>
+   </section>
+ </main>
+
+  <!-- TODO
     - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
     - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
     - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
     -->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

@@ -30,6 +30,6 @@ Var:
 I boxen
 I hagen
 På ridbanan
-I skogen
+I hästtransporten
 I ridhuset
 Höladan

@@ -21,6 +21,13 @@
   visibility: hidden;
 }
 
+.hidden{
+  display: none;
+}
+
+/************************************************************************
+ *                               Regler för startsida                 
+ ************************************************************************/ 
 .startpage {
   display: flex;
   align-items: center;
@@ -31,7 +38,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    height: 30vh;
+    height: 50vh;
     width: 60vw;
     margin-left: 20%;
     background-color: rgba($color: #c4bfbf, $alpha: 80%);
@@ -46,10 +53,32 @@
   }
 }
 
+/******************************************************************************
+*                             Regler för spelsida
+*******************************************************************************/
+#selectionpage {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+  .play-intro {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+}
+
+  .play-intro span{
+    font-size: x-small;
+    text-align: center;
+  }
+
+
 .all-killers {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
+  gap: 2px 2px;
+  margin-top: 2px;
   grid-auto-flow: row;
   grid-template-areas:
     "killer-1 killer-2 killer-3"
@@ -70,18 +99,33 @@
   align-items: center;
   height: 15vh;
   width: 30vw;
-  outline: solid white 1px;
-
-  h2{
+  
+    h2{
     font-size: 1em;
+    text-align: center;
   }
+
+    
+}
+
+.selectbutton {
+    height: 20px;
+    font-size: small;
+
+    :focus{
+      border: solid blue 1px;
+    }
+}
+
+.active{
+    border: solid blue 1px;
 }
 
 .all-places {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  margin-top: 10px;
+  gap: 2px 2px;
+  margin-top: 2px;
   grid-auto-flow: row;
   grid-template-areas:
     "place-1 place-2 place-3"
@@ -100,20 +144,21 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 15vh;
+  height: 12vh;
   width: 30vw;
-  outline: solid white 1px;
+  
 
   h2{
     font-size: 1em;
+    text-align: center;
   }
 }
 
 .all-weapons {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  margin-top: 10px;
+  gap: 2px 2px;
+  margin-top: 2px;
   grid-auto-flow: row;
   grid-template-areas:
     "weapon-1 weapon-2 weapon-3"
@@ -132,11 +177,15 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 15vh;
+  height: 12vh;
   width: 30vw;
-  outline: solid white 1px;
 
   h2{
     font-size: 1em;
+    text-align: center;
   }
+}
+
+.test-result {
+  margin-top: 20px;
 }

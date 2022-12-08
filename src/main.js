@@ -84,18 +84,7 @@ function displayKillers() {
 
 displayKillers();
 
-/*
-Funktion för att kunna klicka på ett spelkort och läsa mer om personen
-const killerTextLong = document.querySelectorAll('.read-more');
-
-const readMore = document.querySelectorAll('img');
-console.log(readMore)
-readMore.addEventListener('click', () => {
-  killerTextLong.classList.remove('toggle-hidden');
-});
-*/
-
-//Alla platser. Används av funktionen displayPlaces
+//Funktion för att välja mördare
 
 const pickKillerBtn = document.querySelectorAll('.select-killer');
   pickKillerBtn.forEach ((btn) => {
@@ -109,6 +98,9 @@ function pickKiller (btn){
   currentBtn.classList.add('.active')
   
 }
+
+//Alla platser. Används av funktionen displayPlaces
+
 
 const placesArray = [
   {
@@ -198,3 +190,14 @@ function displayWeapons() {
   }
 }
 displayWeapons();
+
+/*
+Funktion för att kunna klicka på ett spelkort och läsa mer om personen
+const killerTextLong = document.querySelectorAll('.read-more');
+
+const readMore = document.querySelectorAll('img');
+console.log(readMore)
+readMore.addEventListener('click', () => {
+  killerTextLong.classList.remove('toggle-hidden');
+});
+*/

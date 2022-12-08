@@ -1,6 +1,20 @@
 import './style.scss';
 //import {killersArray} from '.arrays.js';
 
+const beginGameBtn = document.querySelector('.begin-game');
+console.log(beginGameBtn)
+beginGameBtn.addEventListener('click', startGame);
+
+function startGame(){
+/**
+ * Vad ska hända: Man ska klicka på knappen och då ska spelsidan med alla kort
+ * öppnas.
+ * Längst upp ska det finnas en text där det står vad man ska göra, 
+ * längst ner ska det finnas en knapp där man kan testa sitt val.
+ * 
+*/
+}
+startGame ()
 const killersArray = [
   {
     id: 1,
@@ -98,6 +112,7 @@ function displayPlaces() {
     }
   }
   displayPlaces();
+
 const weaponsArray = [
   {
     id: 1,

@@ -26,20 +26,26 @@
     "killer-1 killer-2 killer-3"
     "killer-4 killer-5 killer-6";
 
-.killer-1 { grid-area: killer-1; }
-.killer-2 { grid-area: killer-2; }
-.killer-3 { grid-area: killer-3; }
-.killer-4 { grid-area: killer-4; }
-.killer-5 { grid-area: killer-5; }
-.killer-6 { grid-area: killer-6; }
-
+.killer-0 { grid-area: killer-1; }
+.killer-1 { grid-area: killer-2; }
+.killer-2 { grid-area: killer-3; }
+.killer-3 { grid-area: killer-4; }
+.killer-4 { grid-area: killer-5; }
+.killer-5 { grid-area: killer-6; }
 
 }
 
 .all-killers div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   height: 15vh;
   width: 30vw;
   outline: solid white 1px;
+
+  h2{
+    font-size: 1em;
+  }
 }
 
 .all-places {  display: grid;
@@ -52,21 +58,27 @@
     "place-1 place-2 place-3"
     "place-4 place-5 place-6";
 
-.place-1 { grid-area: place-1; }
-.place-2 { grid-area: place-2; }
-.place-3 { grid-area: place-3; }
-.place-4 { grid-area: place-4; }
-.place-5 { grid-area: place-5; }
-.place-6 { grid-area: place-6; }
+.place-0 { grid-area: place-1; }
+.place-1 { grid-area: place-2; }
+.place-2 { grid-area: place-3; }
+.place-3 { grid-area: place-4; }
+.place-4 { grid-area: place-5; }
+.place-5 { grid-area: place-6; }
 
 }
 
 .all-places div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   height: 15vh;
   width: 30vw;
   outline: solid white 1px;
-}
 
+  h2{
+    font-size: 1em;
+  }
+}
 .all-weapons {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -77,18 +89,24 @@
     "weapon-1 weapon-2 weapon-3"
     "weapon-4 weapon-5 weapon-6";
 
-.weapon-1 { grid-area: weapon-1; }
-.weapon-2 { grid-area: weapon-2; }
-.weapon-3 { grid-area: weapon-3; }
-.weapon-4 { grid-area: weapon-4; }
-.weapon-5 { grid-area: weapon-5; }
-.weapon-6 { grid-area: weapon-6; }
-
+.weapon-0 { grid-area: weapon-1; }
+.weapon-1 { grid-area: weapon-2; }
+.weapon-2 { grid-area: weapon-3; }
+.weapon-3 { grid-area: weapon-4; }
+.weapon-4 { grid-area: weapon-5; }
+.weapon-5 { grid-area: weapon-6; }
 
 }
 
 .all-weapons div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   height: 15vh;
   width: 30vw;
   outline: solid white 1px;
+
+  h2{
+    font-size: 1em;
+  }
 }

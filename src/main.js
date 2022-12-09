@@ -91,15 +91,18 @@ pickKillerBtn.forEach(btn => {
 });
 
 function pickKiller(btn) {
-  let selectedKilllerBtn = btn.currentTarget;
-  selectedKilllerBtn.classList.add('active');
-
+  let selectedKillerBtn = btn.currentTarget
+  selectedKillerBtn.classList.add('active');
   pickKillerBtn.forEach(button => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
   });
+
+  const killerName = btn.currentTarget.id.replace('killerbutton-', '')
+  const trueKillerName = killersArray[killerName].name;
 }
+
 
 //Alla platser. Används av funktionen displayPlaces
 const placesArray = [
@@ -229,6 +232,37 @@ function pickWeapon(btn) {
       button.setAttribute('disabled', 'disabled');
     }
   });
+}
+
+//Funktioner för att plocka ut tre random svar
+function getRandomKiller (killer){
+  const killerIndex = Math.floor(Math.random() * killer.length);
+  const trueKiller = killer[killerIndex].name;
+  return trueKiller;
+}
+const killerResult =getRandomKiller(killersArray)
+console.log(killerResult)
+
+function getRandomPlace (place){
+  const placeIndex = Math.floor(Math.random() * place.length);
+  const truePlace = place[placeIndex].place;
+  return truePlace;
+}
+const placeResult = getRandomPlace(placesArray);
+console.log(placeResult)
+
+function getRandomWeapon (weapon){
+  const weaponIndex = Math.floor(Math.random () * weapon.length);
+  const trueWeapon = weapon[weaponIndex].weapon;
+  return trueWeapon;
+}
+const weaponResult = getRandomWeapon(weaponsArray)
+console.log(weaponResult)
+
+// Funktion för att kontrollera rätt svar
+
+if (killerResult === trueKillerName){
+  console.log('hurra')
 }
 
 /*

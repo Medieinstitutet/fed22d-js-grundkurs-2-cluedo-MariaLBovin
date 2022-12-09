@@ -90,6 +90,7 @@ pickKillerBtn.forEach(btn => {
   btn.addEventListener('click', pickKiller);
 });
 
+let trueKillerName = ''
 function pickKiller(btn) {
   let selectedKillerBtn = btn.currentTarget
   selectedKillerBtn.classList.add('active');
@@ -100,7 +101,8 @@ function pickKiller(btn) {
   });
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '')
-  const trueKillerName = killersArray[killerName].name;
+  trueKillerName = killersArray[killerName].name;
+  console.log(trueKillerName)
 }
 
 
@@ -261,9 +263,17 @@ console.log(weaponResult)
 
 // Funktion för att kontrollera rätt svar
 
-if (killerResult === trueKillerName){
-  console.log('hurra')
+const resultBtn = document.querySelector('.test-result');
+resultBtn.addEventListener('click', testResult);
+console.log(resultBtn);
+
+function testResult (){
+ if (killerResult == trueKillerName){
+   console.log('hurra')
+  }
 }
+
+
 
 /*
 Funktion för att kunna klicka på ett spelkort och läsa mer om personen

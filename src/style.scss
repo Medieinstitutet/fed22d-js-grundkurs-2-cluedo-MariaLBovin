@@ -32,7 +32,7 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  background-image: url('/public/images/backgroundimage-small.jpg');
+  background-image: url('/images/backgroundimage-small.jpg');
 
   .game-intro {
     display: inline-flex;
@@ -73,6 +73,14 @@
     text-align: center;
   }
 
+  .selectbutton {
+    height: 20px;
+    font-size: small;
+}
+
+.active{
+    border: solid blue 1px;
+}
 
 .all-killers {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -97,7 +105,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 15vh;
+  height: 14vh;
   width: 30vw;
   
     h2{
@@ -108,18 +116,7 @@
     
 }
 
-.selectbutton {
-    height: 20px;
-    font-size: small;
 
-    :focus{
-      border: solid blue 1px;
-    }
-}
-
-.active{
-    border: solid blue 1px;
-}
 
 .all-places {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -144,7 +141,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 12vh;
+  height: 14vh;
   width: 30vw;
   
 
@@ -177,7 +174,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 12vh;
+  height: 14vh;
   width: 30vw;
 
   h2{

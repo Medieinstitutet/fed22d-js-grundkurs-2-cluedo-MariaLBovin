@@ -57,7 +57,7 @@
 *                             Regler för spelsida
 *******************************************************************************/
 #selectionpage {
-  display:flex;
+  display:none;
   flex-direction: column;
   align-items: center;
 
@@ -185,4 +185,8 @@
 
 .test-result {
   margin-top: 20px;
+}
+
+#resultpage {
+  display: none;
 }

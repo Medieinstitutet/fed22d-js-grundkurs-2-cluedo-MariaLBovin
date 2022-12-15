@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projekt</title>
 </head>
-
 <body>
   <main>
     <!-- Jag behöver:
@@ -76,16 +75,6 @@
       <button class="test-result">Se ditt resultat</button>
       <button id="clue">Ledtråd<html lang="en">
       </section>
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-      </head>
-      <body>
-        
-      </body>
-      </html></button>
     </section>
     <section id='resultpage'>
       <article class="result">
@@ -93,13 +82,11 @@
         <button class="play-again">Spela igen</button>
       </article>
     </section>
+    <section id="game-over">
+    <article class ="gameover-text"></article> 
+    <input type="button" value="Börja om från början" onClick="window.location.reload(true)">
+    </section>
   </main>
-
-  <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
   <script type="module" src="/src/main.js"></script>
 </body>
 

@@ -7,6 +7,7 @@ import './style.scss';
 const startPage = document.querySelector('.startpage');
 const selectionPage = document.querySelector('#selectionpage');
 const resultPage = document.querySelector('#resultpage');
+const gameOverPage = document.querySelector('#game-over');
 
 
 /**********************************************************************
@@ -158,31 +159,31 @@ displayKillers();
 //Funktion för att läsa mer om de olika karaktärerna
 const killerImage =document.querySelectorAll('.killerimage');
 killerImage.forEach(img => {
-  img.addEventListener('click', readMore)
-})
+  img.addEventListener('click', readMore);
+});
 
-const displayKillerText = document.querySelector('.textbox')
+const displayKillerText = document.querySelector('.textbox');
 
 function readMore(img){
-  const killerText = img.currentTarget.id.replace('img-', '')
+  const killerText = img.currentTarget.id.replace('img-', '');
   
-  displayKillerText.style.display = 'flex'
+  displayKillerText.style.display = 'flex';
   displayKillerText.innerHTML = `
         <article class="killer-text">${killersArray[killerText].about}</article>
         <button id="close-text">Stäng</button>
-  `
+  `;
 
   //varibler för att stänga läs-mer-rutan
-  const closeTextBtn = document.querySelectorAll('#close-text')
-  console.log(closeTextBtn)
+  const closeTextBtn = document.querySelectorAll('#close-text');
+  console.log(closeTextBtn);
   closeTextBtn.forEach(btn => {
-    btn.addEventListener('click', closeKillerText)
-  })
+    btn.addEventListener('click', closeKillerText);
+  });
 }
 
 //Funktion för att stänga läs-mer-rutan
 function closeKillerText (){
-  displayKillerText.style.display = 'none'
+  displayKillerText.style.display = 'none';
   
 } 
 
@@ -217,14 +218,14 @@ function displayWeapons() {
 displayWeapons();
 
 //Funktion för att välja mördare
-let selectedKillerName =''
+let selectedKillerName ='';
 function pickKiller(btn) {
   let selectedKillerBtn = btn.currentTarget;
   selectedKillerBtn.classList.add('active');
   pickKillersBtn.forEach(button => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    }
+    };
   });
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');
@@ -249,8 +250,9 @@ function pickPlace(btn) {
   pickPlacesBtn.forEach(button => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    }
+    };
   });
+
   const placeName = btn.currentTarget.id.replace('placebutton-', '');
   truePlaceName = placesArray[placeName].place;
 }
@@ -259,7 +261,7 @@ function pickPlace(btn) {
 const pickWeaponsBtn = document.querySelectorAll('.select-weapon');
 pickWeaponsBtn.forEach(btn => {
   btn.addEventListener('click', pickWeapon);
-  ;
+  
 });
 
 let trueWeaponame = '';
@@ -270,9 +272,10 @@ function pickWeapon(btn) {
   pickWeaponsBtn.forEach(button => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    }
+    };
     
   });
+
   const weaponName = btn.currentTarget.id.replace('weaponbutton-', '');
   trueWeaponame = weaponsArray[weaponName].weapon;
 }
@@ -284,8 +287,8 @@ function getRandomKiller(killer) {
   return trueKiller;
 
 }
-const killerResult = getRandomKiller(killersArray);
 
+const killerResult = getRandomKiller(killersArray);
 console.log(killerResult);
 
 function getRandomPlace(place) {
@@ -301,8 +304,8 @@ function getRandomWeapon(weapon) {
   const trueWeapon = weapon[weaponIndex].weapon;
   return trueWeapon;
 }
-const weaponResult = getRandomWeapon(weaponsArray);
 
+const weaponResult = getRandomWeapon(weaponsArray);
 console.log(weaponResult);
 
 
@@ -333,8 +336,8 @@ function testResult() {
 const playAgainBtn = document.querySelector('.play-again');
 playAgainBtn.addEventListener('click', () => {
       playAgain();
-      endGame();
-})
+      
+})    
 
 function playAgain() {
   playAgainBtn.addEventListener('click', () => {
@@ -343,27 +346,39 @@ function playAgain() {
 
   });
   pickWeaponsBtn.forEach(button => {
-    button.removeAttribute('disabled', 'disabled')
-    button.classList.remove('active')
+    button.removeAttribute('disabled', 'disabled');
+    button.classList.remove('active');
   
   });
   pickPlacesBtn.forEach(button => {
-    button.removeAttribute('disabled', 'disabled')
-    button.classList.remove('active')
+    button.removeAttribute('disabled', 'disabled');
+    button.classList.remove('active');
   
   });
   pickKillersBtn.forEach(button => {
-    button.removeAttribute('disabled', 'disabled')
-    button.classList.remove('active')
+    button.removeAttribute('disabled', 'disabled');
+    button.classList.remove('active');
   
   });
 
 }
 playAgain();
 
-//Funktion för game-over OBS EJ KLAR
+//Funktion för game-over
 function endGame (){
-  for (let i=0; i===4; i++) {
-    console.log('game-over')
-  }
+  let countPlayAgainClick = 0;
+  const gameOverText = document.querySelector('.gameover-text')
+  resultBtn.addEventListener ('click',() => {
+    countPlayAgainClick += 1;
+    if (countPlayAgainClick > 3){
+      gameOverPage.style.display = 'flex'
+      gameOverText.innerHTML = 'Du förlorade';
+      resultPage.style.display = 'none';
+      selectionPage.style.display = 'none';
+    }
+  });
+  
 }
+endGame ()
+
+

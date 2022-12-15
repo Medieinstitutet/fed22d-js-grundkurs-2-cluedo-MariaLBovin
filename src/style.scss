@@ -3,13 +3,10 @@
 
 :root {
   // TODO: Går bra att radera kod även här!
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: rem(16px);
   line-height: 24px;
-  font-weight: 400;
-  color-scheme: light dark;
   color: rgba(7, 7, 7, 0.87);
-  background-color: #f3ebeb;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
@@ -41,14 +38,15 @@
     height: 50vh;
     width: 60vw;
     margin-left: 20%;
-    background-color: rgba($color: #c4bfbf, $alpha: 80%);
+    margin-bottom: 80%;
+    background-color: rgba($color: #c2b2a4, $alpha: 0.8);
     color: #242424;
     text-align: center;
     padding: 5% 2%;
   }
 
   .begin-game {
-    margin-top: 5%;
+    margin-top: 10%;
   }
 }
 
@@ -58,7 +56,7 @@
 #selectionpage {
   display: none;
   flex-direction: column;
-  align-items: center;
+  background-color: #dacbbe;
 
   .play-intro {
     text-align: center;
@@ -67,17 +65,18 @@
 
   }
 
+
   .play-intro h2 {
-    font-size: 0.8em;
+    font-size: 1.2em;
   }
 
   .playintro p {
-    font-size: small;
+    font-size: 1em;
   }
 }
 
 .play-intro span {
-  font-size: x-small;
+  font-size: small;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -114,10 +113,17 @@ position: absolute;
 .selectbutton {
   height: 20px;
   font-size: small;
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 1px solid black;
+  border-radius: 20%;
+
+ 
 }
 
 .active {
-  border: solid blue 1px;
+  border: solid rgb(36, 36, 102) 2px;
+
 }
 
 .all-killers {
@@ -156,7 +162,7 @@ position: absolute;
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -200,7 +206,7 @@ position: absolute;
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -244,7 +250,7 @@ position: absolute;
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -252,20 +258,65 @@ position: absolute;
   }
 }
 
+.buttons {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .test-result, #clue{
   margin-top: 20px;
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+
+}
+#close-text{
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+  width: 10vw;
 }
 
 #resultpage {
-  display: none;
+  display:none;
   flex-direction: column;
-  align-items: center;
+  align-content: center;
   height: 100vh;
+  background-color: #dacbbe;
+
+  .result{
+    text-align: center;
+    margin-top: 35%;
+  }
+  .play-again {
+    margin-top:10%;
+    background-color:rgba(100, 91, 116, 0.9);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5%;
+  }
 }
 
 #game-over {
-  display: none;
+  display:none;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  background-color: #dacbbe;
+
+  .gameover-text {
+    text-align: center;
+    margin-top: 35%;
+  }
+
+  .startover {
+    margin-top:10%;
+    background-color:rgba(100, 91, 116, 0.9);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5%;
+    width: 35vw;
+  }
 }

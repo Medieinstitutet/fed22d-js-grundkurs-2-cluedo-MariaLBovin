@@ -29,7 +29,7 @@ const killersArray = [
     name: 'Herr Guldhov',
     age: 69,
     color: 'Gul',
-    about: 'Herr Guldhov, gift med fru Guldhov.69 år gammal, har en gul jacka som han är mycket stolt över. Snål.',
+    about: 'Herr Guldhov, gift med fru Guldhov. 69 år gammal, har en gul jacka som han är mycket stolt över. Snål.',
     image: '/images/killers/herr_guldhov.jpg',
   },
   {
@@ -61,7 +61,7 @@ const killersArray = [
     name: 'Pjotr Plum',
     age: 42,
     color: 'Plommon',
-    about: 'Pjotr Plum, veterinär som hjälpt till med Silverhofs hälta. 42 år. Har en mörklila veterinärväska som han alltid bär på. Manipulativ och girig.',
+    about: 'Pjotr Plum, veterinär. 42 år gammel, har en mörklila veterinärväska som han alltid bär på. Manipulativ och girig.',
     image: '/images/killers/pjotr_plum.jpg',
   },
 ];

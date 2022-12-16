@@ -341,22 +341,24 @@ function getClue (btn){
 
 const resultText = document.querySelector('.result-text');
 const resultBtn = document.querySelector('.test-result');
+resultBtn.setAttribute('disabled', 'disabled');
 
 //Funktion för att aktivera resultatknapp
-/**
- * Om ett vapen, en plats och ett vapen är valt så ska se ditt resultat aktiveras
- */
+
+const allBtns =document.querySelectorAll('.selectbutton')
+allBtns.forEach(btn => {
+  addEventListener('click', activateButton)
+})
 
 function activateButton (){
   if ((controlKiller >= 1) && (controlPlace >=1 ) &&(controlWeapon >=1)){
-    resultBtn.addEventListener('click', () => {
-      testResult();
-    })
-
+    resultBtn.removeAttribute('disabled', 'disabled')
     }
-    
 }
 
+resultBtn.addEventListener('click', () => {
+  testResult();
+})
 
 // Funktion för att kontrollera rätt svar
 function testResult() {

@@ -215,6 +215,7 @@ function displayWeapons() {
 }
 displayWeapons();
 
+
 //Funktion för att välja mördare
 let selectedKillerName ='';
 let controlKiller = 0;
@@ -231,7 +232,6 @@ function pickKiller(btn) {
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');
   selectedKillerName = killersArray[killerName].name;
   
-  console.log(controlKiller)
 
 }
 const pickKillersBtn = document.querySelectorAll('.select-killer');
@@ -261,6 +261,7 @@ function pickPlace(btn) {
 
   const placeName = btn.currentTarget.id.replace('placebutton-', '');
   truePlaceName = placesArray[placeName].place;
+
 }
 //Funktion för att välja vapen
 
@@ -286,14 +287,18 @@ function pickWeapon(btn) {
 
   const weaponName = btn.currentTarget.id.replace('weaponbutton-', '');
   trueWeaponame = weaponsArray[weaponName].weapon;
+
+  activateButton ()
+
 }
+
 
 //Funktioner för att plocka ut tre random svar
 function getRandomKiller(killer) {
   const killerIndex = Math.floor(Math.random() * killer.length);
   const trueKiller = killer[killerIndex].name;
   return trueKiller;
-
+  
 }
 
 const killerResult = getRandomKiller(killersArray);
@@ -322,41 +327,43 @@ console.log(weaponResult);
  * variabel som är ledtrådsknappen
  * en funktion som läser av vem som är slumpad mördare (killerReslut) och ger tillbaka ledtråden color
  */
+const clueBox = document.querySelector('.clue-box');
 const clueButton = document.querySelector('#clue');
 clueButton.addEventListener('click', getClue);
 
 function getClue (btn){
-  let killerClueIndex = btn.currentTarget.id.replace('clue', '');
-  const killerClue = killersArray[killerResult].color
+  let killerClues = killersArray.find(killer => killer.name === killerResult)
+  let killerClue = killerClues.color;
   console.log(killerClue)
+  clueBox.innerHTML=killerClue
   }
 
 
-// Funktion för att kontrollera rätt svar
+
 const resultText = document.querySelector('.result-text');
-
-function activateButton (){
-  //resultBtn.setAttribute('disabled', 'disabled');
-  if ((controlKiller >= 1)){
-    }
-
-}
-
 const resultBtn = document.querySelector('.test-result');
-resultBtn.addEventListener('click', () => {
-  activateButton();
-  testResult ();
-})
 
 //Funktion för att aktivera resultatknapp
 /**
  * Om ett vapen, en plats och ett vapen är valt så ska se ditt resultat aktiveras
  */
 
+function activateButton (){
+  if ((controlKiller >= 1) && (controlPlace >=1 ) &&(controlWeapon >=1)){
+
+    }
+
+    resultBtn.addEventListener('click', () => {
+      testResult();
+      
+    })
+  
+}
 
 
-
+// Funktion för att kontrollera rätt svar
 function testResult() {
+
   selectionPage.style.display = 'none';
   resultPage.style.display = 'flex';
   const correctKiller = killerResult == selectedKillerName;
@@ -364,7 +371,9 @@ function testResult() {
   const correctWeapon = weaponResult == trueWeaponame;
 
   if (correctKiller && correctPlace && correctWeapon) {
-    resultText.innerHTML= 'Grattis du hade alla rätt!';
+    resultText.innerHTML= 'Grattis du hade alla rätt!' + 
+    `<input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)"></input>`;
+    playAgainBtn.style.display = 'none';
   } else if ((correctKiller && correctPlace) || (correctKiller && correctWeapon) || (correctPlace && correctWeapon)) {
     resultText.innerHTML = 'Du hade två rätt, försök igen!';
   } else if (correctKiller || correctPlace || correctWeapon) {

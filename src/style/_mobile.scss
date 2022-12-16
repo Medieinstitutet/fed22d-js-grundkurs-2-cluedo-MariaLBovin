@@ -208,6 +208,12 @@ position: absolute;
   border-radius: 5%;
 
 }
+
+.test-result:disabled{
+  color:black;
+  background-color: rgba(116, 115, 117, 0.9);
+}
+
 #close-text{
   background-color:rgba(100, 91, 116, 0.9);
   color: white;

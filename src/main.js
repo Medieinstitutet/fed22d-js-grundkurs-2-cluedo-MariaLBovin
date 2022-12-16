@@ -334,8 +334,7 @@ clueButton.addEventListener('click', getClue);
 function getClue (btn){
   let killerClues = killersArray.find(killer => killer.name === killerResult)
   let killerClue = killerClues.color;
-  console.log(killerClue)
-  clueBox.innerHTML=killerClue
+  clueBox.innerHTML='Din ledtråd är ' + killerClue;
   }
 
 
@@ -350,14 +349,12 @@ const resultBtn = document.querySelector('.test-result');
 
 function activateButton (){
   if ((controlKiller >= 1) && (controlPlace >=1 ) &&(controlWeapon >=1)){
-
-    }
-
     resultBtn.addEventListener('click', () => {
       testResult();
-      
     })
-  
+
+    }
+    
 }
 
 

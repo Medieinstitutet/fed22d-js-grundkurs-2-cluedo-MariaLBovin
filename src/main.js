@@ -7,7 +7,7 @@ import './style.scss';
 const startPage = document.querySelector('.startpage');
 const selectionPage = document.querySelector('#selectionpage');
 const resultPage = document.querySelector('#resultpage');
-const gameOverPage = document.querySelector('#game-over');
+const gameOverPage = document.querySelector('#gameoverpage');
 
 
 /**********************************************************************
@@ -146,7 +146,7 @@ function displayKillers() {
   for (let i = 0; i < killersArray.length; i++) {
     let killerNr = 'killer-' + i;
     const printKillers = `<section class="${killerNr}">
-        <img class="killerimage" id="img-${i}" src="${killersArray[i].image}" alt="" width="50" height="100">
+        <img class="killerimage" id="img-${i}" src="${killersArray[i].image}" alt="" width="80" height="80">
         <h2>${killersArray[i].name}</h2>
         <button id="killerbutton-${i}" class="select-killer selectbutton">Välj</button>
         </section>`;
@@ -166,7 +166,6 @@ const displayKillerText = document.querySelector('.textbox');
 
 function readMore(img){
   const killerText = img.currentTarget.id.replace('img-', '');
-  
   displayKillerText.style.display = 'flex';
   displayKillerText.innerHTML = `
         <article class="killer-text">${killersArray[killerText].about}</article>
@@ -175,7 +174,6 @@ function readMore(img){
 
   //varibler för att stänga läs-mer-rutan
   const closeTextBtn = document.querySelectorAll('#close-text');
-  console.log(closeTextBtn);
   closeTextBtn.forEach(btn => {
     btn.addEventListener('click', closeKillerText);
   });
@@ -193,7 +191,7 @@ function displayPlaces() {
   for (let i = 0; i < placesArray.length; i++) {
     let placeNr = 'place-' + i;
     const printPlaces = `<section class="${placeNr}">
-        <img id="img-${i}" src="${placesArray[i].image}" alt="" width="50" height="100">
+        <img id="img-${i}" src="${placesArray[i].image}" alt="" width="80" height="80">
         <h2>${placesArray[i].place}</h2>
         <button id="placebutton-${i}" class="select-place selectbutton ">Välj</button>
       </section>`;
@@ -208,7 +206,7 @@ function displayWeapons() {
   for (let i = 0; i < weaponsArray.length; i++) {
     let weaponNr = 'weapon-' + i;
     const printWeapons = `<section class="${weaponNr}">
-                  <img id="img-${i}" src="${weaponsArray[i].image}" alt="" width="50" height="100">
+                  <img id="img-${i}" src="${weaponsArray[i].image}" alt="" width="80" height="80">
                   <h2>${weaponsArray[i].weapon}</h2>
               <button id="weaponbutton-${i}" class="select-weapon selectbutton">Välj</button>
               </section>`;
@@ -219,8 +217,10 @@ displayWeapons();
 
 //Funktion för att välja mördare
 let selectedKillerName ='';
+let controlKiller = 0;
 function pickKiller(btn) {
   let selectedKillerBtn = btn.currentTarget;
+  controlKiller ++
   selectedKillerBtn.classList.add('active');
   pickKillersBtn.forEach(button => {
     if (!button.classList.contains('active')) {
@@ -230,15 +230,21 @@ function pickKiller(btn) {
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');
   selectedKillerName = killersArray[killerName].name;
+  
+  console.log(controlKiller)
+
 }
 const pickKillersBtn = document.querySelectorAll('.select-killer');
 pickKillersBtn.forEach(btn => {
   btn.addEventListener('click', pickKiller);
 });
 
+
 //Funktion för att välja plats
 let truePlaceName = '';
+let controlPlace = 0;
 const pickPlacesBtn = document.querySelectorAll('.select-place');
+controlPlace ++;
 pickPlacesBtn.forEach(btn => {
   btn.addEventListener('click', pickPlace);
 });
@@ -265,8 +271,10 @@ pickWeaponsBtn.forEach(btn => {
 });
 
 let trueWeaponame = '';
+let controlWeapon = 0;
 function pickWeapon(btn) {
   let selectedWeapon = btn.currentTarget;
+  controlWeapon ++;
   selectedWeapon.classList.add('active');
 
   pickWeaponsBtn.forEach(button => {
@@ -308,12 +316,45 @@ function getRandomWeapon(weapon) {
 const weaponResult = getRandomWeapon(weaponsArray);
 console.log(weaponResult);
 
+//Funktion för att få en ledtråd
+/***
+ * Jag behöver:
+ * variabel som är ledtrådsknappen
+ * en funktion som läser av vem som är slumpad mördare (killerReslut) och ger tillbaka ledtråden color
+ */
+const clueButton = document.querySelector('#clue');
+clueButton.addEventListener('click', getClue);
+
+function getClue (btn){
+  let killerClueIndex = btn.currentTarget.id.replace('clue', '');
+  const killerClue = killersArray[killerResult].color
+  console.log(killerClue)
+  }
+
 
 // Funktion för att kontrollera rätt svar
+const resultText = document.querySelector('.result-text');
+
+function activateButton (){
+  //resultBtn.setAttribute('disabled', 'disabled');
+  if ((controlKiller >= 1)){
+    }
+
+}
 
 const resultBtn = document.querySelector('.test-result');
-const resultText = document.querySelector('.result-text');
-resultBtn.addEventListener('click', testResult);
+resultBtn.addEventListener('click', () => {
+  activateButton();
+  testResult ();
+})
+
+//Funktion för att aktivera resultatknapp
+/**
+ * Om ett vapen, en plats och ett vapen är valt så ska se ditt resultat aktiveras
+ */
+
+
+
 
 function testResult() {
   selectionPage.style.display = 'none';
@@ -332,6 +373,7 @@ function testResult() {
     resultText.innerHTML = 'Tyvärr! Inga rätt. Bättre lycka nästa gång!';
   }
 }
+
 
 const playAgainBtn = document.querySelector('.play-again');
 playAgainBtn.addEventListener('click', () => {

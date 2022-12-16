@@ -1,0 +1,26 @@
+.game-intro{
+    margin-bottom:30%
+}
+
+.all-killers {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "killer-0 killer-1 killer-2"
+      "killer-3 killer-4 killer-5";
+  }
+  
+  .killer-0 { grid-area: killer-0; }
+  
+  .killer-1 { grid-area: killer-1; }
+  
+  .killer-2 { grid-area: killer-2; }
+  
+  .killer-3 { grid-area: killer-3; }
+  
+  .killer-4 { grid-area: killer-4; }
+  
+  .killer-5 { grid-area: killer-5; }
+  

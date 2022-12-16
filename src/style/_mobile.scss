@@ -1,16 +1,9 @@
-@use 'utils/a11y'; // Om det inte funkar, byt @use mot @import
-@use 'vendor/reset';
-
-
 :root {
   // TODO: Går bra att radera kod även här!
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: rem(16px);
   line-height: 24px;
-  font-weight: 400;
-  color-scheme: light dark;
   color: rgba(7, 7, 7, 0.87);
-  background-color: #f3ebeb;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
@@ -42,14 +35,15 @@
     height: 50vh;
     width: 60vw;
     margin-left: 20%;
-    background-color: rgba($color: #c4bfbf, $alpha: 80%);
+    margin-bottom: 80%;
+    background-color: rgba($color: #c2b2a4, $alpha: 0.8);
     color: #242424;
     text-align: center;
     padding: 5% 2%;
   }
 
   .begin-game {
-    margin-top: 5%;
+    margin-top: 10%;
   }
 }
 
@@ -59,7 +53,7 @@
 #selectionpage {
   display: none;
   flex-direction: column;
-  align-items: center;
+  background-color: #ffffff;
 
   .play-intro {
     text-align: center;
@@ -68,28 +62,65 @@
 
   }
 
+
   .play-intro h2 {
-    font-size: 0.8em;
+    font-size: 1.2em;
   }
 
   .playintro p {
-    font-size: small;
+    font-size: 1em;
   }
 }
 
 .play-intro span {
-  font-size: x-small;
+  font-size: small;
   text-align: center;
   margin-bottom: 5px;
 }
 
+.textbox{
+display: none;
+flex-direction: column;
+background-image: url('/images/card.jpg');
+background-size: 100%;
+background-repeat: no-repeat;
+height: 60vh;
+width: 60vw;
+margin-left:25%;
+margin-top: 20%;
+position: absolute;
+
+.killer-text{
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  }
+  
+  #close-text {
+    height: 35px;
+    width: 45px;
+    align-self: center;
+    font-size: smaller;
+    margin-bottom: 10px;
+  }
+}
+
+
 .selectbutton {
   height: 20px;
   font-size: small;
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 0.5px solid black;
+  border-radius: 20%;
+
+ 
 }
 
 .active {
-  border: solid blue 1px;
+  border: solid rgb(36, 36, 102) 2px;
+
 }
 
 .all-killers {
@@ -98,29 +129,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'killer-1 killer-2 killer-3'
-    'killer-4 killer-5 killer-6';
-
-  .killer-0 {
-    grid-area: killer-1;
-  }
-  .killer-1 {
-    grid-area: killer-2;
-  }
-  .killer-2 {
-    grid-area: killer-3;
-  }
-  .killer-3 {
-    grid-area: killer-4;
-  }
-  .killer-4 {
-    grid-area: killer-5;
-  }
-  .killer-5 {
-    grid-area: killer-6;
-  }
+ 
 }
 
 .all-killers section {
@@ -128,7 +137,7 @@
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -142,29 +151,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'place-1 place-2 place-3'
-    'place-4 place-5 place-6';
-
-  .place-0 {
-    grid-area: place-1;
-  }
-  .place-1 {
-    grid-area: place-2;
-  }
-  .place-2 {
-    grid-area: place-3;
-  }
-  .place-3 {
-    grid-area: place-4;
-  }
-  .place-4 {
-    grid-area: place-5;
-  }
-  .place-5 {
-    grid-area: place-6;
-  }
+ 
 }
 
 .all-places section {
@@ -172,7 +159,7 @@
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -186,29 +173,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'weapon-1 weapon-2 weapon-3'
-    'weapon-4 weapon-5 weapon-6';
-
-  .weapon-0 {
-    grid-area: weapon-1;
-  }
-  .weapon-1 {
-    grid-area: weapon-2;
-  }
-  .weapon-2 {
-    grid-area: weapon-3;
-  }
-  .weapon-3 {
-    grid-area: weapon-4;
-  }
-  .weapon-4 {
-    grid-area: weapon-5;
-  }
-  .weapon-5 {
-    grid-area: weapon-6;
-  }
+ 
 }
 
 .all-weapons section {
@@ -216,7 +181,7 @@
   flex-direction: column;
   align-items: center;
   height: 14vh;
-  width: 30vw;
+  width: 33vw;
 
   h2 {
     font-size: 0.8em;
@@ -224,10 +189,87 @@
   }
 }
 
-.test-result {
+.buttons {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.test-result, #clue{
   margin-top: 20px;
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+
+}
+#close-text{
+  background-color:rgba(100, 91, 116, 0.9);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+  width: 10vw;
 }
 
 #resultpage {
-  display: none;
+  display:none;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
+
+
+  .result{
+    background-image: url('/images/card.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    margin-top: 35%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100vh;
+  }
+
+    h2 {
+      margin-top: 30%;
+      padding: 10px
+    }
+
+  .play-again {
+    margin-top:10%;
+    background-color:rgba(100, 91, 116, 0.9);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5%;
+  }
+}
+
+#gameoverpage {
+  display:none;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
+
+  .gameover {
+    background-image: url('/images/card.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    margin-top: 35%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100vh;
+  }
+
+    h2 {
+    margin-top: 30%;
+    padding: 10px
+  }
+
+  .startover {
+    margin-top:10%;
+    background-color:rgba(100, 91, 116, 0.9);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5%;
+    
+  }
 }

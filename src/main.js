@@ -1,19 +1,38 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-plusplus */
 import './style.scss';
-//import {killersArray} from '.arrays.js';
+// import {killersArray} from '.arrays.js';
 
-/************************************************************************
+/** **********************************************************************
  *                           Globala variabler
- *************************************************************************/
+ *
+ ************************************************************************ */
 const startPage = document.querySelector('.startpage');
-const selectionPage = document.querySelector('#selectionpage');
+const selectionPage = document.querySelector('.selectionpage');
 const resultPage = document.querySelector('#resultpage');
 const gameOverPage = document.querySelector('#gameoverpage');
 
+const beginGameBtn = document.querySelector('.begin-game');
 
-/**********************************************************************
+const displayKillerText = document.querySelector('.textbox');
+
+let truePlaceName = '';
+let controlPlace = 0;
+
+let selectedKillerName = '';
+let controlKiller = 0;
+
+let trueWeaponame = '';
+let controlWeapon = 0;
+
+const resultText = document.querySelector('.result-text');
+
+/** ********************************************************************
  *                        Arrayer
- ***********************************************************************/
-// Alla mördare. Informationen används av display-killers-funktionen
+ ********************************************************************** */
+/*
+Alla mördare. Informationen används av display-killers-funktionen
+*/
 const killersArray = [
   {
     id: 1,
@@ -37,7 +56,8 @@ const killersArray = [
     name: 'Kalle Knackare',
     age: 39,
     color: 'Grön',
-    about: 'Kalle Knackare, hovslagare. 40 år gammal, har gröna jägarkläder när han jobbar.Ett riktigt råskinn men snäll innerst inne.',
+    about:
+      'Kalle Knackare, hovslagare. 40 år gammal, har gröna jägarkläder när han jobbar.Ett riktigt råskinn men snäll innerst inne.',
     image: '/images/killers/kalle_knackare.jpg',
   },
   {
@@ -45,7 +65,8 @@ const killersArray = [
     name: 'Anna La Rouge',
     age: 23,
     color: 'Röd',
-    about: 'Anna La Rouge, ryttaren som tävlar med Silverhof. 25 år gammal, rider i en röd ridjacka. En riktig surpuppa. ',
+    about:
+      'Anna La Rouge, ryttaren som tävlar med Silverhof. 25 år gammal, rider i en röd ridjacka. En riktig surpuppa. ',
     image: '/images/killers/anna_la_rouge.jpg',
   },
   {
@@ -53,7 +74,8 @@ const killersArray = [
     name: 'Rosa Rosando',
     age: 18,
     color: 'Rosa',
-    about:'Rosa Rosando, stalltjej som hjälper till på stallet för att få rida. 18 år gammal, har knallrosa hår. Genomsnäll',
+    about:
+      'Rosa Rosando, stalltjej som hjälper till på stallet för att få rida. 18 år gammal, har knallrosa hår. Genomsnäll',
     image: '/images/killers/rosa_rosando.jpg',
   },
   {
@@ -61,12 +83,15 @@ const killersArray = [
     name: 'Pjotr Plum',
     age: 42,
     color: 'Plommon',
-    about: 'Pjotr Plum, veterinär. 42 år gammel, har en mörklila veterinärväska som han alltid bär på. Manipulativ och girig.',
+    about:
+      'Pjotr Plum, veterinär. 42 år gammel, har en mörklila veterinärväska som han alltid bär på. Manipulativ och girig.',
     image: '/images/killers/pjotr_plum.jpg',
   },
 ];
 
-//Alla platser. Används av funktionen displayPlaces
+/*
+ Alla platser. Används av funktionen displayPlaces
+ */
 const placesArray = [
   {
     place: 'I boxen',
@@ -94,7 +119,9 @@ const placesArray = [
   },
 ];
 
-//Alla vapen. Används av funktionen displayWeapons
+/*
+Alla vapen. Används av funktionen displayWeapons
+*/
 const weaponsArray = [
   {
     id: 1,
@@ -128,25 +155,30 @@ const weaponsArray = [
   },
 ];
 
-/***********************************************************************
+/** *********************************************************************
  *                         Funktioner
- ***********************************************************************/
+ ********************************************************************** */
 
-//Starta spelet. När man klickar på knappen döljs startsidan spelsidan öppnas.
-const beginGameBtn = document.querySelector('.begin-game');
+/*
+Starta spelet. När man klickar på knappen döljs startsidan och spelsidan öppnas.
+*/
 beginGameBtn.addEventListener('click', () => {
-  startPage.style.display = 'none';
-  selectionPage.style.display = 'flex';
+  startPage.classList.remove('visible');
+  startPage.classList.add('hidden');
+  selectionPage.classList.remove('hidden');
+  selectionPage.classList.add('visible');
 });
 
-//Funktion för att skriva ut alla mördare till spelsidan
+/*
+Funktion för att skriva ut alla mördare till spelsidan
+*/
 function displayKillers() {
   const killersPlacement = document.querySelectorAll('.killer');
 
   for (let i = 0; i < killersArray.length; i++) {
-    let killerNr = 'killer-' + i;
+    const killerNr = `killer-${i}`;
     const printKillers = `<section class="${killerNr}">
-        <img class="killerimage" id="img-${i}" src="${killersArray[i].image}" alt="" width="80" height="80">
+        <img class="killerimage" id="img-${i}" src="${killersArray[i].image}" alt="" width="80" height="80" tabindex = 0>
         <h2>${killersArray[i].name}</h2>
         <button id="killerbutton-${i}" class="select-killer selectbutton">Välj</button>
         </section>`;
@@ -156,40 +188,61 @@ function displayKillers() {
 
 displayKillers();
 
-//Funktion för att läsa mer om de olika karaktärerna
-const killerImage =document.querySelectorAll('.killerimage');
-killerImage.forEach(img => {
-  img.addEventListener('click', readMore);
-});
+/*
+Funktion för att läsa mer om de olika karaktärerna
+*/
 
-const displayKillerText = document.querySelector('.textbox');
-
-function readMore(img){
+function readMore(img) {
   const killerText = img.currentTarget.id.replace('img-', '');
-  displayKillerText.style.display = 'flex';
+  displayKillerText.classList.remove('hidden');
+  displayKillerText.classList.add('visible');
   displayKillerText.innerHTML = `
         <article class="killer-text">${killersArray[killerText].about}</article>
-        <button id="close-text">Stäng</button>
+        <button id="close-text tab-index = 1">Stäng</button>
   `;
 
-  //varibler för att stänga läs-mer-rutan
+  /*
+  varibler för att stänga läs-mer-rutan
+  */
   const closeTextBtn = document.querySelectorAll('#close-text');
-  closeTextBtn.forEach(btn => {
+  closeTextBtn.forEach((btn) => {
     btn.addEventListener('click', closeKillerText);
   });
 }
+/**
+ * Funktion för att öppna läs-mer-rutan med hjälp av tab.
+ */
+function openImageTab(e) {
+  if (e.key === 'Enter') {
+    readMore()
+    console.log('japp');
+  }
+}
 
-//Funktion för att stänga läs-mer-rutan
-function closeKillerText (){
-  displayKillerText.style.display = 'none';
-  
-} 
+const killerImage = document.querySelectorAll('.killerimage');
+killerImage.forEach((img) => {
+  img.addEventListener('click', readMore);
+});
 
-//Funktion för att skriva ut alla platser till spelsidan
+killerImage.forEach((img) => {
+  img.addEventListener('keydown', openImageTab);
+});
+
+/*
+Funktion för att stänga läs-mer-rutan
+*/
+function closeKillerText() {
+  displayKillerText.classList.remove('visible');
+  displayKillerText.classList.add('hidden');
+}
+
+/*
+Funktion för att skriva ut alla platser till spelsidan
+*/
 function displayPlaces() {
   const placesPlacement = document.querySelectorAll('.place');
   for (let i = 0; i < placesArray.length; i++) {
-    let placeNr = 'place-' + i;
+    const placeNr = `place-${i}`;
     const printPlaces = `<section class="${placeNr}">
         <img id="img-${i}" src="${placesArray[i].image}" alt="" width="80" height="80">
         <h2>${placesArray[i].place}</h2>
@@ -200,11 +253,13 @@ function displayPlaces() {
 }
 displayPlaces();
 
-//Funktion för att skriva ut alla vapen till spelsidan.
+/*
+Funktion för att skriva ut alla vapen till spelsidan.
+*/
 function displayWeapons() {
   const weaponsPlacement = document.querySelectorAll('.weapon');
   for (let i = 0; i < weaponsArray.length; i++) {
-    let weaponNr = 'weapon-' + i;
+    const weaponNr = `weapon-${i}`;
     const printWeapons = `<section class="${weaponNr}">
                   <img id="img-${i}" src="${weaponsArray[i].image}" alt="" width="80" height="80">
                   <h2>${weaponsArray[i].weapon}</h2>
@@ -215,90 +270,80 @@ function displayWeapons() {
 }
 displayWeapons();
 
-
-//Funktion för att välja mördare
-let selectedKillerName ='';
-let controlKiller = 0;
+/*
+Funktion för att välja mördare
+*/
 function pickKiller(btn) {
-  let selectedKillerBtn = btn.currentTarget;
-  controlKiller ++
+  const selectedKillerBtn = btn.currentTarget;
+  controlKiller++;
   selectedKillerBtn.classList.add('active');
-  pickKillersBtn.forEach(button => {
+  pickKillersBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    };
+    }
   });
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');
   selectedKillerName = killersArray[killerName].name;
-  
-
 }
 const pickKillersBtn = document.querySelectorAll('.select-killer');
-pickKillersBtn.forEach(btn => {
+pickKillersBtn.forEach((btn) => {
   btn.addEventListener('click', pickKiller);
 });
 
-
-//Funktion för att välja plats
-let truePlaceName = '';
-let controlPlace = 0;
-const pickPlacesBtn = document.querySelectorAll('.select-place');
-controlPlace ++;
-pickPlacesBtn.forEach(btn => {
-  btn.addEventListener('click', pickPlace);
-});
-
+/*
+Funktion för att välja plats
+*/
 function pickPlace(btn) {
-  let selectedPlace = btn.currentTarget;
+  const selectedPlace = btn.currentTarget;
   selectedPlace.classList.add('active');
 
-  pickPlacesBtn.forEach(button => {
+  pickPlacesBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    };
+    }
   });
 
   const placeName = btn.currentTarget.id.replace('placebutton-', '');
   truePlaceName = placesArray[placeName].place;
-
 }
-//Funktion för att välja vapen
 
-const pickWeaponsBtn = document.querySelectorAll('.select-weapon');
-pickWeaponsBtn.forEach(btn => {
-  btn.addEventListener('click', pickWeapon);
-  
+const pickPlacesBtn = document.querySelectorAll('.select-place');
+controlPlace++;
+pickPlacesBtn.forEach((btn) => {
+  btn.addEventListener('click', pickPlace);
 });
 
-let trueWeaponame = '';
-let controlWeapon = 0;
+/*
+Funktion för att välja vapen
+*/
 function pickWeapon(btn) {
-  let selectedWeapon = btn.currentTarget;
-  controlWeapon ++;
+  const selectedWeapon = btn.currentTarget;
+  controlWeapon++;
   selectedWeapon.classList.add('active');
 
-  pickWeaponsBtn.forEach(button => {
+  pickWeaponsBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
-    };
-    
+    }
   });
 
   const weaponName = btn.currentTarget.id.replace('weaponbutton-', '');
   trueWeaponame = weaponsArray[weaponName].weapon;
-
-  activateButton ()
-
 }
 
+const pickWeaponsBtn = document.querySelectorAll('.select-weapon');
+pickWeaponsBtn.forEach((btn) => {
+  btn.addEventListener('click', pickWeapon);
+});
 
-//Funktioner för att plocka ut tre random svar
+/*
+Funktioner för att plocka ut tre random svar
+*/
 function getRandomKiller(killer) {
   const killerIndex = Math.floor(Math.random() * killer.length);
   const trueKiller = killer[killerIndex].name;
   return trueKiller;
-  
 }
 
 const killerResult = getRandomKiller(killersArray);
@@ -321,59 +366,68 @@ function getRandomWeapon(weapon) {
 const weaponResult = getRandomWeapon(weaponsArray);
 console.log(weaponResult);
 
-//Funktion för att få en ledtråd
-/***
- * Jag behöver:
- * variabel som är ledtrådsknappen
- * en funktion som läser av vem som är slumpad mördare (killerReslut) och ger tillbaka ledtråden color
- */
-const clueBox = document.querySelector('.clue-box');
+/*
+Funktion för att få en ledtråd
+*/
+function getClue() {
+  const killerClues = killersArray.find((killer) => killer.name === killerResult);
+  const killerClue = killerClues.color;
+  clueBox.classList.remove('hidden');
+  clueBox.classList.add('visible');
+  clueBox.innerHTML = `<article class="clue-text">Din ledtråd ${killerClue}</article>
+  <button class="close-text" tab-index=1 >Stäng</button>`;
+
+  const closeClueButton = document.querySelector('.close-text');
+  closeClueButton.addEventListener('click', closeClue);
+}
+
+function closeClue() {
+  clueBox.classList.remove('visible');
+  clueBox.classList.add('hidden');
+}
+const clueBox = document.querySelector('#cluebox');
 const clueButton = document.querySelector('#clue');
 clueButton.addEventListener('click', getClue);
 
-function getClue (btn){
-  let killerClues = killersArray.find(killer => killer.name === killerResult)
-  let killerClue = killerClues.color;
-  clueBox.innerHTML='Din ledtråd är ' + killerClue;
-  }
-
-
-
-const resultText = document.querySelector('.result-text');
+/*
+Funktion för att aktivera resultatknapp
+*/
 const resultBtn = document.querySelector('.test-result');
 resultBtn.setAttribute('disabled', 'disabled');
 
-//Funktion för att aktivera resultatknapp
-
-const allBtns =document.querySelectorAll('.selectbutton')
-allBtns.forEach(btn => {
-  addEventListener('click', activateButton)
-})
-
-function activateButton (){
-  if ((controlKiller >= 1) && (controlPlace >=1 ) &&(controlWeapon >=1)){
-    resultBtn.removeAttribute('disabled', 'disabled')
-    }
+function activateButton() {
+  if (controlKiller >= 1 && controlPlace >= 1 && controlWeapon >= 1) {
+    resultBtn.removeAttribute('disabled', 'disabled');
+  }
 }
 
 resultBtn.addEventListener('click', () => {
   testResult();
-})
+});
+const allBtns = document.querySelectorAll('.selectbutton');
+allBtns.forEach((btn) => {
+  btn.addEventListener('click', activateButton);
+});
 
-// Funktion för att kontrollera rätt svar
+/*
+Funktion för att kontrollera rätt svar
+*/
 function testResult() {
-
-  selectionPage.style.display = 'none';
-  resultPage.style.display = 'flex';
-  const correctKiller = killerResult == selectedKillerName;
-  const correctPlace = placeResult == truePlaceName;
-  const correctWeapon = weaponResult == trueWeaponame;
+  selectionPage.classList.remove('visible');
+  selectionPage.classList.add('hidden');
+  resultPage.classList.remove('hidden');
+  resultPage.classList.add('visible');
+  const correctKiller = killerResult === selectedKillerName;
+  const correctPlace = placeResult === truePlaceName;
+  const correctWeapon = weaponResult === trueWeaponame;
 
   if (correctKiller && correctPlace && correctWeapon) {
-    resultText.innerHTML= 'Grattis du hade alla rätt!' + 
-    `<input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)"></input>`;
-    playAgainBtn.style.display = 'none';
-  } else if ((correctKiller && correctPlace) || (correctKiller && correctWeapon) || (correctPlace && correctWeapon)) {
+    resultText.innerHTML = 'Grattis du hade alla rätt! <br>'
+      + '<input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)"></input>';
+    playAgainBtn.classList.add('hidden');
+  } else if ((correctKiller && correctPlace)
+  || (correctKiller && correctWeapon)
+  || (correctPlace && correctWeapon)) {
     resultText.innerHTML = 'Du hade två rätt, försök igen!';
   } else if (correctKiller || correctPlace || correctWeapon) {
     resultText.innerHTML = 'Ett rätt! Spela igen och se om du kan få fler rätt nästa gång';
@@ -382,53 +436,55 @@ function testResult() {
   }
 }
 
-
 const playAgainBtn = document.querySelector('.play-again');
 playAgainBtn.addEventListener('click', () => {
-      playAgain();
-      
-})    
+  playAgain();
+});
 
+/*
+Funktion för att spela igen
+*/
 function playAgain() {
   playAgainBtn.addEventListener('click', () => {
-    resultPage.style.display = 'none';
-    selectionPage.style.display = 'flex';
-
+    resultPage.classList.remove('visible');
+    resultPage.classList.add('hidden');
+    selectionPage.classList.remove('hidden');
+    selectionPage.classList.add('visible');
   });
-  pickWeaponsBtn.forEach(button => {
+  pickWeaponsBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
-  
   });
-  pickPlacesBtn.forEach(button => {
+  pickPlacesBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
-  
   });
-  pickKillersBtn.forEach(button => {
+  pickKillersBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
-  
   });
-
+  resultBtn.setAttribute('disabled', 'disabled');
+  activateButton();
 }
-playAgain();
 
-//Funktion för game-over
-function endGame (){
+/*
+Funktion för game-over
+*/
+function endGame() {
   let countPlayAgainClick = 0;
-  const gameOverText = document.querySelector('.gameover-text')
-  resultBtn.addEventListener ('click',() => {
+  const gameOverText = document.querySelector('.gameover-text');
+  resultBtn.addEventListener('click', () => {
     countPlayAgainClick += 1;
-    if (countPlayAgainClick > 3){
-      gameOverPage.style.display = 'flex'
+    if (countPlayAgainClick > 3) {
+      gameOverPage.classList.remove('hidden');
+      gameOverPage.classList.add('visible');
       gameOverText.innerHTML = 'Du förlorade';
-      resultPage.style.display = 'none';
-      selectionPage.style.display = 'none';
+      resultPage.classList.remove('visible');
+      resultPage.classList.add('hidden');
+      selectionPage.classList.remove('visible');
+      selectionPage.classList.add('hidden');
     }
   });
-  
 }
-endGame ()
 
-
+endGame();

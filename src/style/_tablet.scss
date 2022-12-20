@@ -1,11 +1,7 @@
-.game-intro{
-    margin-bottom:30%
-}
 
 .all-killers {  display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
       "killer-0 killer-1 killer-2"
@@ -23,4 +19,12 @@
   .killer-4 { grid-area: killer-4; }
   
   .killer-5 { grid-area: killer-5; }
-  
+
+  #resultpage .result{
+    margin-top:20%;
+    flex-direction: column;
+  }
+
+  #gameoverpage .gameover{
+    margin-top:20%;
+  }

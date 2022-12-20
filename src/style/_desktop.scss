@@ -1,96 +1,119 @@
-.startpage{
-background-image: url('/images/background-image-large.jpg');
-background-repeat: no-repeat;
-background-size: fit;
-
-    .game-intro {
-        margin-bottom: 15%;
-    }
+@mixin result-gameover-boxes {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 15%;
+  background-size: 100%;
+  height: 70vh;
+  width: 35vw;
 }
 
-#selectionpage{
-    height: 100vh;
-    width: 100vw;
+@mixin text-clue-boxes{
+    width: 25vw;
+    margin-left: 62vh;
+    margin-top: 10vh;
+}
+.startpage {
+  background-image: url('/images/background-image-large.jpg');
+  background-repeat: no-repeat;
+  background-size: fit;
+
+  .game-intro {
+    margin-bottom: 15%;
+  }
 }
 
-.textbox{
-    width:40vw;
-    height: 49vh;
+#selectionpage {
+  height: 100vh;
+  width: 100vw;
+}
+
+.textbox {
+  @include text-clue-boxes;
+
+  .killer-text {
+    margin-top: 10vh;
+  }
+
+  #close-text {
     margin-top: 5vh;
-
-    .killer-text {
-        margin-top: 15vh;
-    }
-
-    #close-text {
-        margin-top: 5vh;
-    }
+  }
 }
 
-.all-killers {  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px 0px;
-    grid-auto-flow: row;
+.all-killers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px 0px;
+  grid-auto-flow: row;
+  margin-top: 20px;
 
-    .killer {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        height: 20vh;
-        width: 14vw;
-}
-}
-
-.all-places {  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px 0px;
-    grid-auto-flow: row;
-
-    .place {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        height: 20vh;
-        width: 14vw;
-}
-}
-  
-.all-weapons {  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px 0px;
-    grid-auto-flow: row;
-
-    .weapon {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        height: 20vh;
-        width: 14vw;
-}
+  .killer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20vh;
+    width: 14vw;
+  }
 }
 
-img{
-    height:115px;
-    width:115px;
+.all-places {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px 0px;
+  grid-auto-flow: row;
+
+  .place {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20vh;
+    width: 14vw;
+  }
+}
+
+.all-weapons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px 0px;
+  grid-auto-flow: row;
+
+  .weapon {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20vh;
+    width: 14vw;
+  }
+}
+
+img {
+  height: 115px;
+  width: 115px;
+}
+
+#cluebox {
+    @include text-clue-boxes;
 }
 
 #resultpage {
+  align-items: center;
+
+  .result {
+    @include result-gameover-boxes;
+  }
+
+  .result-text {
+    padding: 30px;
+  }
+}
+
+#gameoverpage {
     align-items: center;
 
-.result {
-margin-top:10%;
-margin-bottom: 10%;
-margin-left: 15%;
-background-size: 100%;
+    .gameover {
+        @include result-gameover-boxes;
+    }
 }
 
-.result-text {
-    padding:30px;
-}
-}

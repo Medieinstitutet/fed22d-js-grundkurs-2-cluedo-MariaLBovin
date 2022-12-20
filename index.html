@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="sv">
-<!-- TODO: glöm ej att byta språk här -->
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skoluppgift till FED22/24 på Medieinstitutet">
+  <meta property="og:title" content="CV Maria Larsson Bovin">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Skoluppgift till FED22/24 på Medieinstitutet">
+  <meta property="og:locale" content="sv-SE">
+  <link rel="icon" type="image/ico" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projekt</title>
+
+  <title>Clue</title>
 </head>
 
 <body>
   <main>
-    <section class="startpage">
+    <section class="startpage visible">
       <article class="game-intro">
         <h1>Välkommen till stall Guldhoven
           !</h1>
@@ -24,7 +28,7 @@
         <button class="begin-game">Börja spela</button>
       </article>
     </section>
-    <section id="selectionpage">
+    <section class="selectionpage hidden">
       <article class="play-intro">
         <h2>Lös gåtan!</h2>
         <p>Välj en mördare, en plats och ett vapen och klicka sedan på Se ditt resultat.</p>
@@ -32,17 +36,20 @@
       </article>
       <section class="all-killers">
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
         <article class="killer"></article>
-        <article class="textbox"></article>
+        <article class="textbox hidden"></article>
+        <section id="cluebox" class="hidden">
+          <article class="clue-box"></article>
+        </section>
       </section>
       <section class="all-places">
         <article class="place"></article>
@@ -62,22 +69,21 @@
       </section>
       <section class="buttons">
         <button class="test-result">Se ditt resultat</button>
-        <button id="clue">Ledtråd<html lang="en"></button>
-        <article class="clue-box"></article>
+        <button id="clue">Ledtråd</button>
       </section>
     </section>
-    <section id='resultpage'>
+    <section id='resultpage' class="hidden">
       <article class="result">
         <h2 class="result-text"></h2>
         <button class="play-again">Spela igen</button>
       </article>
     </section>
-    <section id="gameoverpage">
+    <section id="gameoverpage" class="hidden">
       <article class="gameover">
         <h2 class="gameover-text"></h2>
         <input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)">
       </article>
-      
+
     </section>
   </main>
   <script type="module" src="/src/main.js"></script>

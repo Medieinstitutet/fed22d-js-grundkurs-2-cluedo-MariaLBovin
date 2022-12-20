@@ -1,32 +1,65 @@
+/* stylelint-disable color-function-notation */
 :root {
   // TODO: Går bra att radera kod även här!
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow, sans-serif;
   font-size: rem(16px);
   line-height: 24px;
-  color: rgba(7, 7, 7, 0.87);
+  color: rgba(7, 7, 7, 87%);
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 }
+@mixin result-gameover{
+  background-image: url('/images/card.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100vh;
 
-.toggle-hidden {
-  visibility: hidden;
+}
+
+@mixin textbox-clue {
+  flex-direction: column;
+  background-image: url('/images/card.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 55vh;
+  width: 45vw;
+  margin-left: 25%;
+  margin-top: 20%;
+  position: absolute;
+
+  .clue-text {
+    padding: 20px;
+    text-align: center;
+  }
 }
 
 .hidden {
-  display: none;
+  position: absolute;
+  visibility:hidden;
+  display:none;
+}
+
+.visible{
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 /************************************************************************
  *                               Regler för startsida                 
  ************************************************************************/
 .startpage {
-  display: flex;
   align-items: center;
   height: 100vh;
   background-image: url('/images/backgroundimage-small.jpg');
+  background-repeat: no-repeat;
 
   .game-intro {
     display: inline-flex;
@@ -34,9 +67,8 @@
     align-items: center;
     height: 50vh;
     width: 60vw;
-    margin-left: 20%;
-    margin-bottom: 80%;
-    background-color: rgba($color: #c2b2a4, $alpha: 0.8);
+    margin-top: 10%;
+    background-color: rgba($color: #c2b2a4, $alpha: 80%);
     color: #242424;
     text-align: center;
     padding: 5% 2%;
@@ -44,7 +76,7 @@
 
   .begin-game {
     margin-top: 10%;
-    background-color:rgba(100, 91, 116, 0.9);
+    background-color: rgba(100, 91, 116, 90%);
     color: white;
     border: 0.5px solid black;
   }
@@ -53,18 +85,15 @@
 /******************************************************************************
 *                             Regler för spelsida
 *******************************************************************************/
-#selectionpage {
-  display: none;
+.selectionpage {
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #fff;
 
   .play-intro {
     text-align: center;
     padding-left: 2px;
     padding-right: 2px;
-
   }
-
 
   .play-intro h2 {
     font-size: 1.2em;
@@ -81,52 +110,41 @@
   margin-bottom: 5px;
 }
 
-.textbox{
-display: none;
-flex-direction: column;
-background-image: url('/images/card.jpg');
-background-size: 100%;
-background-repeat: no-repeat;
-height: 60vh;
-width: 60vw;
-margin-left:25%;
-margin-top: 20%;
-position: absolute;
+.textbox {
+  @include textbox-clue;
 
-.killer-text{
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-top: 15px;
+  .killer-text {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 45px;
   }
-  
+
   #close-text {
     height: 35px;
     width: 45px;
     align-self: center;
     font-size: smaller;
-    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }
 
 .selectbutton {
   height: 20px;
   font-size: small;
-  background-color:rgba(100, 91, 116, 0.9);
+  background-color: rgba(100, 91, 116, 90%);
   color: white;
   border: 0.5px solid black;
   border-radius: 20%;
-
 }
 
 .active {
   border: solid rgb(36, 36, 102) 2px;
-
 }
 
 .selectbutton:disabled {
-  color:black;
-  background-color: rgba(116, 115, 117, 0.9);
+  color: black;
+  background-color: rgba(116, 115, 117, 90%);
 }
 
 .all-killers {
@@ -135,7 +153,6 @@ position: absolute;
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
- 
 }
 
 .all-killers section {
@@ -157,7 +174,6 @@ position: absolute;
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
- 
 }
 
 .all-places section {
@@ -179,7 +195,6 @@ position: absolute;
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
- 
 }
 
 .all-weapons section {
@@ -200,54 +215,50 @@ position: absolute;
   flex-direction: row;
   justify-content: space-around;
 }
-.test-result, #clue{
+
+.test-result,
+#clue {
   margin-top: 20px;
-  background-color:rgba(100, 91, 116, 0.9);
+  background-color: rgba(100, 91, 116, 90%);
   color: white;
   border: 1px solid black;
   border-radius: 5%;
-
 }
 
-.test-result:disabled{
-  color:black;
-  background-color: rgba(116, 115, 117, 0.9);
+.test-result:disabled {
+  color: black;
+  background-color: rgba(116, 115, 117, 90%);
 }
 
-#close-text{
-  background-color:rgba(100, 91, 116, 0.9);
+#close-text {
+  background-color: rgba(100, 91, 116, 90%);
   color: white;
   border: 1px solid black;
   border-radius: 5%;
   width: 10vw;
 }
 
+#cluebox {
+  @include textbox-clue;
+}
+
 #resultpage {
-  display:none;
   flex-direction: column;
   align-content: center;
   height: 100vh;
 
-
-  .result{
-    background-image: url('/images/card.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    text-align: center;
-    margin-top: 35%;
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 100vh;
+  .result {
+    @include result-gameover();
   }
 
-    h2 {
-      margin-top: 30%;
-      padding: 10px
-    }
+  h2 {
+    margin-top: 30%;
+    padding: 20px;
+  }
 
   .play-again {
-    margin-top:10%;
-    background-color:rgba(100, 91, 116, 0.9);
+    margin-top: 10%;
+    background-color: rgba(100, 91, 116, 90%);
     color: white;
     border: 1px solid black;
     border-radius: 5%;
@@ -255,33 +266,24 @@ position: absolute;
 }
 
 #gameoverpage {
-  display:none;
   flex-direction: column;
   align-content: center;
   height: 100vh;
 
   .gameover {
-    background-image: url('/images/card.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    text-align: center;
-    margin-top: 35%;
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 100vh;
+    @include result-gameover;
   }
 
-    h2 {
+  h2 {
     margin-top: 30%;
-    padding: 10px
+    padding: 10px;
   }
 
   .startover {
-    margin-top:10%;
-    background-color:rgba(100, 91, 116, 0.9);
+    margin-top: 10%;
+    background-color: rgba(100, 91, 116, 90%);
     color: white;
     border: 1px solid black;
     border-radius: 5%;
-    
   }
 }

@@ -35,12 +35,13 @@
   margin-top: 20%;
   position: absolute;
 
-  .clue-text {
-    padding: 20px;
-    text-align: center;
-  }
 }
 
+@mixin buttons {
+  background-color: rgba(100, 91, 116, 90%);
+  color: white;
+  
+}
 .hidden {
   position: absolute;
   visibility:hidden;
@@ -76,10 +77,9 @@
   }
 
   .begin-game {
+    @include buttons;
     margin-top: 10%;
-    background-color: rgba(100, 91, 116, 90%);
-    color: white;
-    border: 0.5px solid black;
+    
   }
 }
 
@@ -120,14 +120,11 @@
     padding-right: 15px;
     margin-top: 45px;
   }
-
   
 }
 
 .close-text {
-  background-color: rgba(100, 91, 116, 90%);
-  color: white;
-  border: 1px solid black;
+  @include buttons;
   border-radius: 5%;
   height: 35px;
   width: 45px;
@@ -137,11 +134,10 @@
 }
 
 .selectbutton {
-  height: 20px;
+  @include buttons;
+  height: 25px;
+  width: 35px;
   font-size: small;
-  background-color: rgba(100, 91, 116, 90%);
-  color: white;
-  border: 0.5px solid black;
   border-radius: 20%;
 }
 
@@ -225,10 +221,8 @@
 
 .test-result,
 #clue {
+  @include buttons;
   margin-top: 20px;
-  background-color: rgba(100, 91, 116, 90%);
-  color: white;
-  border: 1px solid black;
   border-radius: 5%;
 }
 
@@ -239,6 +233,15 @@
 
 #cluebox {
   @include textbox-clue;
+
+  .clue-text {
+    padding: 20px;
+    text-align: center;
+  }
+
+  #close-text {
+    @include buttons;
+  }
 }
 
 #resultpage {
@@ -256,9 +259,7 @@
   }
 
   .play-again {
-    margin-top: 10%;
-    background-color: rgba(100, 91, 116, 90%);
-    color: white;
+    @include buttons;
     border: 1px solid black;
     border-radius: 5%;
   }
@@ -279,10 +280,7 @@
   }
 
   .startover {
-    margin-top: 10%;
-    background-color: rgba(100, 91, 116, 90%);
-    color: white;
-    border: 1px solid black;
+    @include buttons;
     border-radius: 5%;
   }
 }

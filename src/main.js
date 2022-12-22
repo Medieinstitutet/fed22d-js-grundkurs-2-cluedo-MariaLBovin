@@ -74,10 +74,11 @@ function readMore(e) {
   varibler för att stänga läs-mer-rutan
   */
   const closeTextBtn = document.querySelectorAll('.close-text');
-  closeTextBtn.forEach(btn => {
+  closeTextBtn.forEach((btn) => {
     btn.addEventListener('click', closeKillerText);
   });
-} 
+  console.log(closeTextBtn);
+}
 
 /*
  * Funktion för att öppna och stänga läs-mer-rutan med hjälp av tab.
@@ -93,9 +94,10 @@ function openImageTab(e) {
   `;
   }
   const closeTextBtn = document.querySelectorAll('.close-text');
-  closeTextBtn.forEach(btn => {
+  closeTextBtn.forEach((btn) => {
     btn.addEventListener('keydown', closeKillerText);
   });
+  
 }
 
 /*
@@ -107,11 +109,11 @@ function closeKillerText() {
 }
 
 const killerImage = document.querySelectorAll('.killerimage');
-killerImage.forEach(img => {
+killerImage.forEach((img) => {
   img.addEventListener('click', readMore);
 });
 
-killerImage.forEach(img => {
+killerImage.forEach((img) => {
   img.addEventListener('keydown', openImageTab);
 });
 
@@ -156,7 +158,7 @@ function pickKiller(btn) {
   const selectedKillerBtn = btn.currentTarget;
   controlKiller++;
   selectedKillerBtn.classList.add('active');
-  pickKillersBtn.forEach(button => {
+  pickKillersBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
@@ -166,7 +168,7 @@ function pickKiller(btn) {
   selectedKillerName = killersArray[killerName].name;
 }
 const pickKillersBtn = document.querySelectorAll('.select-killer');
-pickKillersBtn.forEach(btn => {
+pickKillersBtn.forEach((btn) => {
   btn.addEventListener('click', pickKiller);
 });
 
@@ -177,7 +179,7 @@ function pickPlace(btn) {
   const selectedPlace = btn.currentTarget;
   selectedPlace.classList.add('active');
 
-  pickPlacesBtn.forEach(button => {
+  pickPlacesBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
@@ -189,7 +191,7 @@ function pickPlace(btn) {
 
 const pickPlacesBtn = document.querySelectorAll('.select-place');
 controlPlace++;
-pickPlacesBtn.forEach(btn => {
+pickPlacesBtn.forEach((btn) => {
   btn.addEventListener('click', pickPlace);
 });
 
@@ -201,7 +203,7 @@ function pickWeapon(btn) {
   controlWeapon++;
   selectedWeapon.classList.add('active');
 
-  pickWeaponsBtn.forEach(button => {
+  pickWeaponsBtn.forEach((button) => {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
@@ -212,7 +214,7 @@ function pickWeapon(btn) {
 }
 
 const pickWeaponsBtn = document.querySelectorAll('.select-weapon');
-pickWeaponsBtn.forEach(btn => {
+pickWeaponsBtn.forEach((btn) => {
   btn.addEventListener('click', pickWeapon);
 });
 
@@ -249,15 +251,16 @@ console.log(weaponResult);
 Funktion för att få en ledtråd
 */
 function getClue() {
-  const killerClues = killersArray.find(killer => killer.name === killerResult);
+  const killerClues = killersArray.find((killer) => killer.name === killerResult);
   const killerClue = killerClues.color;
   clueBox.classList.remove('hidden');
   clueBox.classList.add('visible');
   clueBox.innerHTML = `<article class="clue-text">Din ledtråd ${killerClue}</article>
-  <button class="close-text" >Stäng</button>`;
+  <button id="close-text" >Stäng</button>`;
 
-  const closeClueButton = document.querySelector('.close-text');
+  const closeClueButton = document.querySelector('#close-text');
   closeClueButton.addEventListener('click', closeClue);
+  console.log(closeClueButton)
 }
 
 function closeClue() {
@@ -285,7 +288,7 @@ resultBtn.addEventListener('click', () => {
   testResult();
 });
 const allBtns = document.querySelectorAll('.selectbutton');
-allBtns.forEach(btn => {
+allBtns.forEach((btn) => {
   btn.addEventListener('click', activateButton);
 });
 
@@ -302,11 +305,12 @@ function testResult() {
   const correctWeapon = weaponResult === trueWeaponame;
 
   if (correctKiller && correctPlace && correctWeapon) {
-    resultText.innerHTML =
-      'Grattis du hade alla rätt! <br>' +
-      '<input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)"></input>';
+    resultText.innerHTML = 'Grattis du hade alla rätt! <br>'
+      + '<input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)"></input>';
     playAgainBtn.classList.add('hidden');
-  } else if ((correctKiller && correctPlace) || (correctKiller && correctWeapon) || (correctPlace && correctWeapon)) {
+  } else if ((correctKiller && correctPlace)
+  || (correctKiller && correctWeapon)
+  || (correctPlace && correctWeapon)) {
     resultText.innerHTML = 'Du hade två rätt, försök igen!';
   } else if (correctKiller || correctPlace || correctWeapon) {
     resultText.innerHTML = 'Ett rätt! Spela igen och se om du kan få fler rätt nästa gång';
@@ -330,22 +334,22 @@ function playAgain() {
     selectionPage.classList.remove('hidden');
     selectionPage.classList.add('visible');
   });
-  pickWeaponsBtn.forEach(button => {
+  pickWeaponsBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
   });
-  pickPlacesBtn.forEach(button => {
+  pickPlacesBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
   });
-  pickKillersBtn.forEach(button => {
+  pickKillersBtn.forEach((button) => {
     button.removeAttribute('disabled', 'disabled');
     button.classList.remove('active');
   });
   resultBtn.setAttribute('disabled', 'disabled');
 }
 
-playAgainBtn.addEventListener('keydown', playAgain); 
+playAgainBtn.addEventListener('keydown', playAgain);
 /*
 Funktion för game-over
 */

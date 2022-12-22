@@ -42,6 +42,7 @@
   color: white;
   
 }
+
 .hidden {
   position: absolute;
   visibility:hidden;
@@ -78,8 +79,9 @@
 
   .begin-game {
     @include buttons;
+
     margin-top: 10%;
-    
+
   }
 }
 
@@ -125,6 +127,7 @@
 
 .close-text {
   @include buttons;
+
   border-radius: 5%;
   height: 35px;
   width: 45px;
@@ -135,6 +138,7 @@
 
 .selectbutton {
   @include buttons;
+
   height: 25px;
   width: 35px;
   font-size: small;
@@ -222,6 +226,7 @@
 .test-result,
 #clue {
   @include buttons;
+
   margin-top: 20px;
   border-radius: 5%;
 }
@@ -260,6 +265,7 @@
 
   .play-again {
     @include buttons;
+
     border: 1px solid black;
     border-radius: 5%;
   }
@@ -281,6 +287,7 @@
 
   .startover {
     @include buttons;
+    
     border-radius: 5%;
   }
 }

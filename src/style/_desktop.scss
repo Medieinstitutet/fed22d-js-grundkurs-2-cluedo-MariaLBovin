@@ -11,6 +11,7 @@
     margin-left: 62vh;
     margin-top: 10vh;
 }
+
 .startpage {
   background-image: url('/images/background-image-large.jpg');
   background-repeat: no-repeat;
@@ -42,7 +43,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 10px 0px;
+  gap: 10px;
   grid-auto-flow: row;
   margin-top: 20px;
 
@@ -59,7 +60,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 10px 0px;
+  gap: 10px;
   grid-auto-flow: row;
 
   .place {
@@ -75,7 +76,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 10px 0px;
+  gap: 10px;
   grid-auto-flow: row;
 
   .weapon {

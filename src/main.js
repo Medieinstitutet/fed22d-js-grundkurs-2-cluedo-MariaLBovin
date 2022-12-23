@@ -50,7 +50,7 @@ function displayKillers() {
   for (let i = 0; i < killersArray.length; i++) {
     const killerNr = `killer-${i}`;
     const printKillers = `<section class="${killerNr}">
-        <img class="killerimage" id="img-${i}" src="${killersArray[i].image[0].src}" alt="${killersArray[i].image[0].alt}" width="80" height="80" tabindex = 0>
+        <img class="killerimage" id="img-${i}" src="./${killersArray[i].image[0].src}" alt="${killersArray[i].image[0].alt}" width="80" height="80" tabindex = 0>
         <h2>${killersArray[i].name}</h2>
         <button id="killerbutton-${i}" class="select-killer selectbutton">Välj</button>
         </section>`;

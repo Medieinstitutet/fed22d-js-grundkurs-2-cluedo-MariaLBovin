@@ -60,7 +60,7 @@
  ************************************************************************/
 .startpage {
   align-items: center;
-  height: 100vh;
+  max-height: 100vh;
   background-image: url('/images/backgroundimage-small.jpg');
   background-repeat: no-repeat;
 
@@ -166,7 +166,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 14vh;
+  height: 12vh;
   width: 33vw;
 
   h2 {
@@ -187,7 +187,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 14vh;
+  height: 12vh;
   width: 33vw;
 
   h2 {
@@ -208,7 +208,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  height: 14vh;
+  height: 12vh;
   width: 33vw;
 
   h2 {

@@ -166,4 +166,176 @@ const weaponsArray = [
     }],
   },
 ];
-export { killersArray, placesArray, weaponsArray };
+
+const ghostKillerArray = [
+  {
+    id: 1,
+    name: 'Frankenstein',
+    color: 'Blå',
+    image: [{
+      src: './personer/frankenstein.jpg',
+      alt: 'tecknad bild av Frankensteins monster',
+    }],
+    about:
+      'Frankensteins monster, en mycket skrämmande typ som blir arg av allt blått.',
+  },
+  {
+    id: 2,
+    name: 'Dracula',
+    age: 69,
+    color: 'Gul',
+    image: [{
+      src: './images/personer/dracula.jpg',
+      alt: 'tecknad bild av dracula',
+    }],
+    about: 'Greve Dracula, en riktigt blodtörstig typ som älskar rött och hatar gult.',
+  },
+  {
+    id: 3,
+    name: 'Beelsebub',
+    age: 39,
+    color: 'Grön',
+    image: [{
+      src: 'images/personer/djavul.jpg',
+      alt: 'tecknad bild av en djävul',
+    }],
+    about:
+      'Beelsebud, också kallad Lucifer, blir på riktigt dåligt humör av gröna saker.',
+  },
+  {
+    id: 4,
+    name: 'Trollpackan',
+    age: 23,
+    color: 'Röd',
+    image: [{
+      src: './images/personer/haxa.jpg',
+      alt: 'tecknad bild av en häxa',
+    }],
+    about:
+      'Trollpackan som inte gillar att kallas för häxa. Det är nästan det värsta hon vet, näst efter färgen röd.',
+  },
+  {
+    id: 5,
+    name: 'Mumien',
+    age: 18,
+    color: 'Rosa',
+    image: [{
+      src: './images/personer/mumie.jpg',
+      alt: 'tecknad bild av en mumie',
+    }],
+    about:
+    'Mumien, en riktigt stel typ. Blir på riktigt tokig av att man säger att dess lindor är rosa.',
+  },
+  {
+    id: 6,
+    name: 'Spöket',
+    age: 42,
+    color: 'Plommon',
+    image: [{
+      src: './images/personer/spoke.jpg',
+      alt: 'tecknad bild av ett spöke',
+    }],
+    about:
+    'Spöket som gillar att spöka runt, gillar att rassla med kedjor och blir arg av färgen plommon.',
+  },
+];
+
+const ghostPlacesArray = [
+  {
+    place: 'Biblioteket',
+    image: [{
+      src: './images/platser/bibliotek.jpg',
+      alt: 'tecknad bild av ett bibliotek',
+    }],
+  },
+  {
+    place: 'Experimentsalen',
+    image: [{
+      src: './images/platser/experimentsal.jpg',
+      alt: 'tecknad bild av en experimentsal',
+    }],
+  },
+  {
+    place: 'Hallen',
+    image: [{
+      src: './images/platser/hall.jpg',
+      alt: 'tecknad bild av en hall',
+    }],
+  },
+  {
+    place: 'Köket',
+    image: [{
+      src: './images/platser/kok.jpg',
+      alt: 'tecknad bild av ett kök',
+    }],
+  },
+  {
+    place: 'Laboratorium',
+    image: [{
+      src: './images/platser/laboratorium.jpg',
+      alt: 'tecknad bild av laboratorium',
+    }],
+  },
+  {
+    place: 'Vardagsrum',
+    image: [{
+      src: './images/platser/vardagsrum.jpg',
+      alt: 'tecknad bild av vardagsrum',
+    }],
+  },
+];
+
+const ghostWeaponsArray = [
+  {
+    id: 1,
+    weapon: 'Dödshand',
+    image: [{
+      src: './images/vapen/dodshand.jpg',
+      alt: 'tecknad bild av hand',
+    }],
+  },
+  {
+    id: 2,
+    weapon: 'Gift',
+    image: [{
+      src: './images/vapen/gift.jpg',
+      alt: 'tecknad bild av en gryta med gift',
+    }],
+  },
+  {
+    id: 3,
+    weapon: 'Förgiftat godis',
+    image: [{
+      src: './images/vapen/godis.jpg',
+      alt: 'teckand bild av förgiftat godis',
+    }],
+  },
+  {
+    id: 4,
+    weapon: 'Gravsten',
+    image: [{
+      src: './images/vapen/gravsten.jpg',
+      alt: 'tecknad bild av gravsten',
+    }],
+  },
+  {
+    id: 5,
+    weapon: 'Häxhatt',
+    image: [{
+      src: './images/vapen/hatt.jpg',
+      alt: 'tecknad bild av en häxhatt',
+    }],
+  },
+  {
+    id: 6,
+    weapon: 'Häxkvast',
+    image: [{
+      src: './images/vapen/kvarst.jpg',
+      alt: 'tecknad bild av en häxkvast',
+    }],
+  },
+];
+
+export {
+  killersArray, placesArray, weaponsArray, ghostKillerArray, ghostPlacesArray, ghostWeaponsArray,
+};

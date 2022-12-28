@@ -1,4 +1,4 @@
-const killersArray = [
+const horseKillersArray = [
   {
     id: 1,
     name: 'Fru Guldhov',
@@ -72,7 +72,7 @@ const killersArray = [
   },
 ];
 
-const placesArray = [
+const horsePlacesArray = [
   {
     place: 'I boxen',
     image: [{
@@ -116,7 +116,7 @@ const placesArray = [
     }],
   },
 ];
-const weaponsArray = [
+const horseWeaponsArray = [
   {
     id: 1,
     weapon: 'Ett grimskaft',
@@ -337,5 +337,10 @@ const ghostWeaponsArray = [
 ];
 
 export {
-  killersArray, placesArray, weaponsArray, ghostKillerArray, ghostPlacesArray, ghostWeaponsArray,
+  horseKillersArray,
+  horsePlacesArray,
+  horseWeaponsArray,
+  ghostKillerArray,
+  ghostPlacesArray,
+  ghostWeaponsArray,
 };

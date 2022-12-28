@@ -1,13 +1,20 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
 import './style.scss';
-import { killersArray, placesArray, weaponsArray } from './arrays';
-
+import {
+  horseKillersArray,
+  horsePlacesArray,
+  horseWeaponsArray,
+  ghostKillerArray,
+  ghostPlacesArray,
+  ghostWeaponsArray,
+} from './arrays';
 /** **********************************************************************
  *                           Globala variabler
  *
  ************************************************************************ */
-const startPage = document.querySelector('.startpage');
+const entryPage = document.querySelector('.entrypage');
+const startPageHorse = document.querySelector('.startpage-horse');
 const selectionPage = document.querySelector('.selectionpage');
 const resultPage = document.querySelector('#resultpage');
 const gameOverPage = document.querySelector('#gameoverpage');
@@ -15,6 +22,10 @@ const gameOverPage = document.querySelector('#gameoverpage');
 const beginGameBtn = document.querySelector('.begin-game');
 
 const displayKillerText = document.querySelector('.textbox');
+
+let killersArray = '';
+let placesArray = '';
+const weaponsArray = '';
 
 let truePlaceName = '';
 let controlPlace = 0;
@@ -30,13 +41,29 @@ const resultText = document.querySelector('.result-text');
 /** *********************************************************************
  *                         Funktioner
  ********************************************************************** */
+const beginHorseGameBtn = document.querySelector('.horse');
+let horseGameChosen = false;
+
+beginHorseGameBtn.addEventListener('click', () => {
+  horseGameChosen = true;
+  console.log(horseGameChosen);
+});
+
+beginHorseGameBtn.addEventListener('click', gameStartStable);
+
+function gameStartStable() {
+  entryPage.classList.remove('visible');
+  entryPage.classList.add('hidden');
+  startPageHorse.classList.remove('hidden');
+  startPageHorse.classList.add('visible');
+}
 
 /*
 Starta spelet. När man klickar på knappen döljs startsidan och spelsidan öppnas.
 */
 beginGameBtn.addEventListener('click', () => {
-  startPage.classList.remove('visible');
-  startPage.classList.add('hidden');
+  startPageHorse.classList.remove('visible');
+  startPageHorse.classList.add('hidden');
   selectionPage.classList.remove('hidden');
   selectionPage.classList.add('visible');
 });
@@ -46,6 +73,10 @@ Funktion för att skriva ut alla mördare till spelsidan
 */
 function displayKillers() {
   const killersPlacement = document.querySelectorAll('.killer');
+
+  if (horseGameChosen === true) {
+    killersArray = horseKillersArray;
+  }
 
   for (let i = 0; i < killersArray.length; i++) {
     const killerNr = `killer-${i}`;
@@ -97,7 +128,6 @@ function openImageTab(e) {
   closeTextBtn.forEach((btn) => {
     btn.addEventListener('keydown', closeKillerText);
   });
-  
 }
 
 /*
@@ -122,6 +152,9 @@ Funktion för att skriva ut alla platser till spelsidan
 */
 function displayPlaces() {
   const placesPlacement = document.querySelectorAll('.place');
+  if (horseGameChosen === true) {
+    placesArray = horsePlacesArray;
+  }
   for (let i = 0; i < placesArray.length; i++) {
     const placeNr = `place-${i}`;
     const printPlaces = `<section class="${placeNr}">
@@ -260,7 +293,7 @@ function getClue() {
 
   const closeClueButton = document.querySelector('#close-text');
   closeClueButton.addEventListener('click', closeClue);
-  console.log(closeClueButton)
+  console.log(closeClueButton);
 }
 
 function closeClue() {

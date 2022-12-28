@@ -15,17 +15,19 @@ import {
  ************************************************************************ */
 const entryPage = document.querySelector('.entrypage');
 const startPageHorse = document.querySelector('.startpage-horse');
+const startPageGhost = document.querySelector('.startpage-ghost');
 const selectionPage = document.querySelector('.selectionpage');
 const resultPage = document.querySelector('#resultpage');
 const gameOverPage = document.querySelector('#gameoverpage');
 
-const beginGameBtn = document.querySelector('.begin-game');
+const beginGameBtnHorse = document.querySelector('.begin-game-horse');
+const beginGameBtnGhost = document.querySelector('.begin-game-ghost');
 
 const displayKillerText = document.querySelector('.textbox');
 
 let killersArray = '';
 let placesArray = '';
-const weaponsArray = '';
+let weaponsArray = '';
 
 let truePlaceName = '';
 let controlPlace = 0;
@@ -41,12 +43,22 @@ const resultText = document.querySelector('.result-text');
 /** *********************************************************************
  *                         Funktioner
  ********************************************************************** */
+/*
+Börja hästspel
+*/
+
 const beginHorseGameBtn = document.querySelector('.horse');
-let horseGameChosen = false;
 
 beginHorseGameBtn.addEventListener('click', () => {
-  horseGameChosen = true;
-  console.log(horseGameChosen);
+  killersArray = horseKillersArray;
+  placesArray = horsePlacesArray;
+  weaponsArray = horseWeaponsArray;
+  displayKillers();
+  displayPlaces();
+  displayWeapons();
+  getRandomKiller();
+  getRandomPlace();
+  getRandomWeapon();
 });
 
 beginHorseGameBtn.addEventListener('click', gameStartStable);
@@ -57,26 +69,51 @@ function gameStartStable() {
   startPageHorse.classList.remove('hidden');
   startPageHorse.classList.add('visible');
 }
+/**
+ * Börja spökspel
+ */
+const beginGhostGame = document.querySelector('.ghost');
+beginGhostGame.addEventListener('click', () => {
+  killersArray = ghostKillerArray;
+  placesArray = ghostPlacesArray;
+  weaponsArray = ghostWeaponsArray;
+  displayKillers();
+  displayPlaces();
+  displayWeapons();
+  getRandomKiller();
+  getRandomPlace();
+  getRandomWeapon();
+});
 
+beginGhostGame.addEventListener('click', gameStartGhost);
+
+function gameStartGhost() {
+  entryPage.classList.remove('visible');
+  entryPage.classList.add('hidden');
+  startPageGhost.classList.remove('hidden');
+  startPageGhost.classList.add('visible');
+}
 /*
 Starta spelet. När man klickar på knappen döljs startsidan och spelsidan öppnas.
 */
-beginGameBtn.addEventListener('click', () => {
+beginGameBtnHorse.addEventListener('click', () => {
   startPageHorse.classList.remove('visible');
   startPageHorse.classList.add('hidden');
   selectionPage.classList.remove('hidden');
   selectionPage.classList.add('visible');
 });
-
+beginGameBtnGhost.addEventListener('click', () => {
+  startPageGhost.classList.remove('visible');
+  startPageGhost.classList.add('hidden');
+  selectionPage.classList.remove('hidden');
+  selectionPage.classList.add('visible');
+})
 /*
 Funktion för att skriva ut alla mördare till spelsidan
 */
+
 function displayKillers() {
   const killersPlacement = document.querySelectorAll('.killer');
-
-  if (horseGameChosen === true) {
-    killersArray = horseKillersArray;
-  }
 
   for (let i = 0; i < killersArray.length; i++) {
     const killerNr = `killer-${i}`;
@@ -88,7 +125,7 @@ function displayKillers() {
     killersPlacement[i].innerHTML = printKillers;
   }
 }
-displayKillers();
+
 /*
 Funktion för att läsa mer om de olika karaktärerna
 */
@@ -150,11 +187,10 @@ killerImage.forEach((img) => {
 /*
 Funktion för att skriva ut alla platser till spelsidan
 */
+
 function displayPlaces() {
   const placesPlacement = document.querySelectorAll('.place');
-  if (horseGameChosen === true) {
-    placesArray = horsePlacesArray;
-  }
+
   for (let i = 0; i < placesArray.length; i++) {
     const placeNr = `place-${i}`;
     const printPlaces = `<section class="${placeNr}">
@@ -172,6 +208,7 @@ Funktion för att skriva ut alla vapen till spelsidan.
 */
 function displayWeapons() {
   const weaponsPlacement = document.querySelectorAll('.weapon');
+
   for (let i = 0; i < weaponsArray.length; i++) {
     const weaponNr = `weapon-${i}`;
     const printWeapons = `<section class="${weaponNr}">
@@ -182,7 +219,6 @@ function displayWeapons() {
     weaponsPlacement[i].innerHTML = printWeapons;
   }
 }
-displayWeapons();
 
 /*
 Funktion för att välja mördare
@@ -258,6 +294,7 @@ function getRandomKiller(killer) {
   const killerIndex = Math.floor(Math.random() * killer.length);
   const trueKiller = killer[killerIndex].name;
   return trueKiller;
+  console.log(trueKiller);
 }
 
 const killerResult = getRandomKiller(killersArray);
@@ -403,4 +440,10 @@ function endGame() {
   });
 }
 
+displayKillers();
+displayPlaces();
+displayWeapons();
+getRandomKiller();
+getRandomPlace();
+getRandomWeapon();
 endGame();

@@ -173,7 +173,7 @@ const ghostKillerArray = [
     name: 'Frankenstein',
     color: 'Blå',
     image: [{
-      src: './personer/frankenstein.jpg',
+      src: './images/personer/frankenstein.jpg',
       alt: 'tecknad bild av Frankensteins monster',
     }],
     about:

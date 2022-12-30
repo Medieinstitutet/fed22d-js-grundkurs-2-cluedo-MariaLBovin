@@ -16,15 +16,28 @@ import {
 const entryPage = document.querySelector('.entrypage');
 const startPageHorse = document.querySelector('.startpage-horse');
 const startPageGhost = document.querySelector('.startpage-ghost');
+
+const beginGhostGame = document.querySelector('.ghost');
+const beginGameBtnHorse = document.querySelector('.begin-game-horse');
+const beginGameBtnGhost = document.querySelector('.begin-game-ghost');
+
 const selectionPage = document.querySelector('.selectionpage');
 const resultPage = document.querySelector('#resultpage');
 const gameOverPage = document.querySelector('#gameoverpage');
 
-const beginGameBtnHorse = document.querySelector('.begin-game-horse');
-const beginGameBtnGhost = document.querySelector('.begin-game-ghost');
+const clueBox = document.querySelector('#cluebox');
+const clueButton = document.querySelector('#clue');
 
 const displayKillerText = document.querySelector('.textbox');
 
+const resultText = document.querySelector('.result-text');
+
+let pickKillersBtn = [];
+let pickPlacesBtn = [];
+let pickWeaponsBtn = [];
+let killerResult = '';
+let placeResult = '';
+let weaponResult = '';
 let killersArray = '';
 let placesArray = '';
 let weaponsArray = '';
@@ -38,30 +51,69 @@ let controlKiller = 0;
 let trueWeaponame = '';
 let controlWeapon = 0;
 
-const resultText = document.querySelector('.result-text');
-
 /** *********************************************************************
  *                         Funktioner
  ********************************************************************** */
-/*
-Börja hästspel
-*/
+/**
+ * Funktion för att visa rätt spelalternativ
+ */
+function startRandomGame() {
+  killerResult = getRandomKiller(killersArray);
+  console.log(killerResult);
+  placeResult = getRandomPlace(placesArray);
+  console.log(placeResult);
+  weaponResult = getRandomWeapon(weaponsArray);
+  console.log(weaponResult);
 
-const beginHorseGameBtn = document.querySelector('.horse');
+  displayKillers();
+  displayPlaces();
+  displayWeapons();
+
+  pickKillersBtn = document.querySelectorAll('.select-killer');
+  pickKillersBtn.forEach((btn) => {
+    btn.addEventListener('click', pickKiller);
+  });
+
+  pickPlacesBtn = document.querySelectorAll('.select-place');
+  controlPlace++;
+  pickPlacesBtn.forEach((btn) => {
+    btn.addEventListener('click', pickPlace);
+  });
+
+  pickWeaponsBtn = document.querySelectorAll('.select-weapon');
+  pickWeaponsBtn.forEach((btn) => {
+    btn.addEventListener('click', pickWeapon);
+  });
+
+  const killerImage = document.querySelectorAll('.killerimage');
+  killerImage.forEach((img) => {
+    img.addEventListener('click', readMore);
+  });
+
+  killerImage.forEach((img) => {
+    img.addEventListener('keydown', openImageTab);
+  });
+
+  clueButton.addEventListener('click', getClue);
+  clueButton.addEventListener('keydown', closeClue);
+
+  const allBtns = document.querySelectorAll('.selectbutton');
+  allBtns.forEach((btn) => {
+    btn.addEventListener('click', activateButton);
+  });
+}
+
+/**
+ * Välj hästspel
+ */
+const beginHorseGameBtn = document.querySelector('#horse');
 
 beginHorseGameBtn.addEventListener('click', () => {
   killersArray = horseKillersArray;
   placesArray = horsePlacesArray;
   weaponsArray = horseWeaponsArray;
-  displayKillers();
-  displayPlaces();
-  displayWeapons();
-  getRandomKiller();
-  getRandomPlace();
-  getRandomWeapon();
+  startRandomGame();
 });
-
-beginHorseGameBtn.addEventListener('click', gameStartStable);
 
 function gameStartStable() {
   entryPage.classList.remove('visible');
@@ -69,23 +121,17 @@ function gameStartStable() {
   startPageHorse.classList.remove('hidden');
   startPageHorse.classList.add('visible');
 }
-/**
- * Börja spökspel
+/*
+ *Välj spökspel
  */
-const beginGhostGame = document.querySelector('.ghost');
+beginHorseGameBtn.addEventListener('click', gameStartStable);
+
 beginGhostGame.addEventListener('click', () => {
   killersArray = ghostKillerArray;
   placesArray = ghostPlacesArray;
   weaponsArray = ghostWeaponsArray;
-  displayKillers();
-  displayPlaces();
-  displayWeapons();
-  getRandomKiller();
-  getRandomPlace();
-  getRandomWeapon();
+  startRandomGame();
 });
-
-beginGhostGame.addEventListener('click', gameStartGhost);
 
 function gameStartGhost() {
   entryPage.classList.remove('visible');
@@ -93,6 +139,8 @@ function gameStartGhost() {
   startPageGhost.classList.remove('hidden');
   startPageGhost.classList.add('visible');
 }
+beginGhostGame.addEventListener('click', gameStartGhost);
+
 /*
 Starta spelet. När man klickar på knappen döljs startsidan och spelsidan öppnas.
 */
@@ -102,12 +150,14 @@ beginGameBtnHorse.addEventListener('click', () => {
   selectionPage.classList.remove('hidden');
   selectionPage.classList.add('visible');
 });
+
 beginGameBtnGhost.addEventListener('click', () => {
   startPageGhost.classList.remove('visible');
   startPageGhost.classList.add('hidden');
   selectionPage.classList.remove('hidden');
-  selectionPage.classList.add('visible');
-})
+  selectionPage.classList.add('visible', 'selectionpage-ghost');
+});
+
 /*
 Funktion för att skriva ut alla mördare till spelsidan
 */
@@ -145,7 +195,6 @@ function readMore(e) {
   closeTextBtn.forEach((btn) => {
     btn.addEventListener('click', closeKillerText);
   });
-  console.log(closeTextBtn);
 }
 
 /*
@@ -174,15 +223,6 @@ function closeKillerText() {
   displayKillerText.classList.remove('visible');
   displayKillerText.classList.add('hidden');
 }
-
-const killerImage = document.querySelectorAll('.killerimage');
-killerImage.forEach((img) => {
-  img.addEventListener('click', readMore);
-});
-
-killerImage.forEach((img) => {
-  img.addEventListener('keydown', openImageTab);
-});
 
 /*
 Funktion för att skriva ut alla platser till spelsidan
@@ -231,15 +271,12 @@ function pickKiller(btn) {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
+    console.log(selectedKillerBtn);
   });
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');
   selectedKillerName = killersArray[killerName].name;
 }
-const pickKillersBtn = document.querySelectorAll('.select-killer');
-pickKillersBtn.forEach((btn) => {
-  btn.addEventListener('click', pickKiller);
-});
 
 /*
 Funktion för att välja plats
@@ -257,12 +294,6 @@ function pickPlace(btn) {
   const placeName = btn.currentTarget.id.replace('placebutton-', '');
   truePlaceName = placesArray[placeName].place;
 }
-
-const pickPlacesBtn = document.querySelectorAll('.select-place');
-controlPlace++;
-pickPlacesBtn.forEach((btn) => {
-  btn.addEventListener('click', pickPlace);
-});
 
 /*
 Funktion för att välja vapen
@@ -282,11 +313,6 @@ function pickWeapon(btn) {
   trueWeaponame = weaponsArray[weaponName].weapon;
 }
 
-const pickWeaponsBtn = document.querySelectorAll('.select-weapon');
-pickWeaponsBtn.forEach((btn) => {
-  btn.addEventListener('click', pickWeapon);
-});
-
 /*
 Funktioner för att plocka ut tre random svar
 */
@@ -294,19 +320,13 @@ function getRandomKiller(killer) {
   const killerIndex = Math.floor(Math.random() * killer.length);
   const trueKiller = killer[killerIndex].name;
   return trueKiller;
-  console.log(trueKiller);
 }
-
-const killerResult = getRandomKiller(killersArray);
-console.log(killerResult);
 
 function getRandomPlace(place) {
   const placeIndex = Math.floor(Math.random() * place.length);
   const truePlace = place[placeIndex].place;
   return truePlace;
 }
-const placeResult = getRandomPlace(placesArray);
-console.log(placeResult);
 
 function getRandomWeapon(weapon) {
   const weaponIndex = Math.floor(Math.random() * weapon.length);
@@ -314,11 +334,8 @@ function getRandomWeapon(weapon) {
   return trueWeapon;
 }
 
-const weaponResult = getRandomWeapon(weaponsArray);
-console.log(weaponResult);
-
 /*
-Funktion för att få en ledtråd
+Funktion för att öppna och stänga ledtrådsrutan
 */
 function getClue() {
   const killerClues = killersArray.find((killer) => killer.name === killerResult);
@@ -330,17 +347,12 @@ function getClue() {
 
   const closeClueButton = document.querySelector('#close-text');
   closeClueButton.addEventListener('click', closeClue);
-  console.log(closeClueButton);
 }
 
 function closeClue() {
   clueBox.classList.remove('visible');
   clueBox.classList.add('hidden');
 }
-const clueBox = document.querySelector('#cluebox');
-const clueButton = document.querySelector('#clue');
-clueButton.addEventListener('click', getClue);
-clueButton.addEventListener('keydown', closeClue);
 
 /*
 Funktion för att aktivera resultatknapp
@@ -356,10 +368,6 @@ function activateButton() {
 
 resultBtn.addEventListener('click', () => {
   testResult();
-});
-const allBtns = document.querySelectorAll('.selectbutton');
-allBtns.forEach((btn) => {
-  btn.addEventListener('click', activateButton);
 });
 
 /*
@@ -420,6 +428,7 @@ function playAgain() {
 }
 
 playAgainBtn.addEventListener('keydown', playAgain);
+
 /*
 Funktion för game-over
 */
@@ -439,11 +448,4 @@ function endGame() {
     }
   });
 }
-
-displayKillers();
-displayPlaces();
-displayWeapons();
-getRandomKiller();
-getRandomPlace();
-getRandomWeapon();
 endGame();

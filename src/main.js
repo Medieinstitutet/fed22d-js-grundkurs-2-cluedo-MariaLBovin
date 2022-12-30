@@ -236,7 +236,7 @@ function displayPlaces() {
     const printPlaces = `<section class="${placeNr}">
         <img id="img-${i}" src="${placesArray[i].image[0].src}" alt="${placesArray[i].image[0].alt}" width="80" height="80">
         <h2>${placesArray[i].place}</h2>
-        <button id="placebutton-${i}" class="select-place selectbutton ">Välj</button>
+        <button id="placebutton-${i}" class="select-place selectbutton">Välj</button>
       </section>`;
     placesPlacement[i].innerHTML = printPlaces;
   }
@@ -342,7 +342,7 @@ function getClue() {
   const killerClue = killerClues.color;
   clueBox.classList.remove('hidden');
   clueBox.classList.add('visible');
-  clueBox.innerHTML = `<article class="clue-text">Din ledtråd ${killerClue}</article>
+  clueBox.innerHTML = `<article class="clue-text">Din ledtråd är ${killerClue}</article>
   <button id="close-text" >Stäng</button>`;
 
   const closeClueButton = document.querySelector('#close-text');

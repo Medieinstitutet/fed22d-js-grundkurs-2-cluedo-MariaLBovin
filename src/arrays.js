@@ -173,7 +173,7 @@ const ghostKillerArray = [
     name: 'Frankenstein',
     color: 'Blå',
     image: [{
-      src: './images/personer/frankenstein.jpg',
+      src: './images/personer/frankenstein.png',
       alt: 'tecknad bild av Frankensteins monster',
     }],
     about:
@@ -185,7 +185,7 @@ const ghostKillerArray = [
     age: 69,
     color: 'Gul',
     image: [{
-      src: './images/personer/dracula.jpg',
+      src: './images/personer/dracula.png',
       alt: 'tecknad bild av dracula',
     }],
     about: 'Greve Dracula, en riktigt blodtörstig typ som älskar rött och hatar gult.',
@@ -196,7 +196,7 @@ const ghostKillerArray = [
     age: 39,
     color: 'Grön',
     image: [{
-      src: 'images/personer/djavul.jpg',
+      src: 'images/personer/djavul.png',
       alt: 'tecknad bild av en djävul',
     }],
     about:
@@ -208,7 +208,7 @@ const ghostKillerArray = [
     age: 23,
     color: 'Röd',
     image: [{
-      src: './images/personer/haxa.jpg',
+      src: './images/personer/haxa.png',
       alt: 'tecknad bild av en häxa',
     }],
     about:
@@ -220,7 +220,7 @@ const ghostKillerArray = [
     age: 18,
     color: 'Rosa',
     image: [{
-      src: './images/personer/mumie.jpg',
+      src: './images/personer/mumie.png',
       alt: 'tecknad bild av en mumie',
     }],
     about:
@@ -232,7 +232,7 @@ const ghostKillerArray = [
     age: 42,
     color: 'Plommon',
     image: [{
-      src: './images/personer/spoke.jpg',
+      src: './images/personer/spoke.png',
       alt: 'tecknad bild av ett spöke',
     }],
     about:
@@ -244,42 +244,42 @@ const ghostPlacesArray = [
   {
     place: 'Biblioteket',
     image: [{
-      src: './images/platser/bibliotek.jpg',
+      src: './images/platser/bibliotek.png',
       alt: 'tecknad bild av ett bibliotek',
     }],
   },
   {
     place: 'Experimentsalen',
     image: [{
-      src: './images/platser/experimentsal.jpg',
+      src: './images/platser/experimentsal.png',
       alt: 'tecknad bild av en experimentsal',
     }],
   },
   {
     place: 'Hallen',
     image: [{
-      src: './images/platser/hall.jpg',
+      src: './images/platser/hall.png',
       alt: 'tecknad bild av en hall',
     }],
   },
   {
     place: 'Köket',
     image: [{
-      src: './images/platser/kok.jpg',
+      src: './images/platser/kok.png',
       alt: 'tecknad bild av ett kök',
     }],
   },
   {
     place: 'Laboratorium',
     image: [{
-      src: './images/platser/laboratorium.jpg',
+      src: './images/platser/laboratorium.png',
       alt: 'tecknad bild av laboratorium',
     }],
   },
   {
     place: 'Vardagsrum',
     image: [{
-      src: './images/platser/vardagsrum.jpg',
+      src: './images/platser/vardagsrum.png',
       alt: 'tecknad bild av vardagsrum',
     }],
   },
@@ -290,7 +290,7 @@ const ghostWeaponsArray = [
     id: 1,
     weapon: 'Dödshand',
     image: [{
-      src: './images/vapen/dodshand.jpg',
+      src: './images/vapen/dodshand.png',
       alt: 'tecknad bild av hand',
     }],
   },
@@ -298,7 +298,7 @@ const ghostWeaponsArray = [
     id: 2,
     weapon: 'Gift',
     image: [{
-      src: './images/vapen/gift.jpg',
+      src: './images/vapen/gift.png',
       alt: 'tecknad bild av en gryta med gift',
     }],
   },
@@ -306,7 +306,7 @@ const ghostWeaponsArray = [
     id: 3,
     weapon: 'Förgiftat godis',
     image: [{
-      src: './images/vapen/godis.jpg',
+      src: './images/vapen/godis.png',
       alt: 'teckand bild av förgiftat godis',
     }],
   },
@@ -314,7 +314,7 @@ const ghostWeaponsArray = [
     id: 4,
     weapon: 'Gravsten',
     image: [{
-      src: './images/vapen/gravsten.jpg',
+      src: './images/vapen/gravsten.png',
       alt: 'tecknad bild av gravsten',
     }],
   },
@@ -322,7 +322,7 @@ const ghostWeaponsArray = [
     id: 5,
     weapon: 'Häxhatt',
     image: [{
-      src: './images/vapen/hatt.jpg',
+      src: './images/vapen/hatt.png',
       alt: 'tecknad bild av en häxhatt',
     }],
   },
@@ -330,7 +330,7 @@ const ghostWeaponsArray = [
     id: 6,
     weapon: 'Häxkvast',
     image: [{
-      src: './images/vapen/kvarst.jpg',
+      src: './images/vapen/kvast.png',
       alt: 'tecknad bild av en häxkvast',
     }],
   },

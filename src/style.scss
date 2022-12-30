@@ -1,16 +1,19 @@
-@use 'utils/a11y'; // Om det inte funkar, byt @use mot @import
+/* stylelint-disable import-notation */
+/* stylelint-disable no-invalid-position-at-import-rule */
+@use 'utils/a11y'; 
 @use 'vendor/reset';
 
 
+@media only screen and (min-width:350px) {
+@import "style/_mobile.scss"
+};
 
-@media screen and (min-width:350px) {
-  @import 'style/_mobile.scss';
-}
+@media only screen and (max-width:1000px) {
+  @import 'style/_tablet.scss'
+};
 
-@media screen and (min-width:600px) {
-  @import 'style/_tablet.scss';
-}
+@media only screen and (min-width:1000px) {
+  @import 'style/_desktop.scss'
+};
 
-@media screen and (min-width: 1000px) {
-  @import 'style/_desktop.scss';
-}
+

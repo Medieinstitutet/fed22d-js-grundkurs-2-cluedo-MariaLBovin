@@ -12,7 +12,7 @@
   text-size-adjust: 100%;
 }
 @mixin result-gameover{
-  background-image: url('/images/card.jpg');
+  background-image: url('/images/card.png');
   background-repeat: no-repeat;
   background-size: 100%;
   flex-direction: column;
@@ -26,7 +26,7 @@
 @mixin textbox-clue {
   flex-direction: column;
   align-items: center;
-  background-image: url('/images/card.jpg');
+  background-image: url('/images/card.png');
   background-size: 100%;
   background-repeat: no-repeat;
   height: 55vh;
@@ -40,6 +40,7 @@
 @mixin buttons {
   background-color: rgba(100, 91, 116, 90%);
   color: white;
+  text-align: center;
   
 }
 
@@ -58,10 +59,40 @@
 /************************************************************************
  *                               Regler för startsida                 
  ************************************************************************/
+.entrypage {
+  align-items: center;
+  min-height: 100vh;
+  background: url('/images/entrypage.png');
+  background-repeat: no-repeat;
+  background-size: 400px 400px;
+  background-position: center;
+
+
+  .choose-game {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    width: 60vw;
+    margin-top: 10%;
+    background-color: rgba($color: #484747, $alpha: 60%);
+    color: #242424;
+    text-align: center;
+    padding: 5% 2%;
+  }
+
+  #ghost, #horse {
+    @include buttons;
+
+    margin-top: 5%;
+
+  }
+}
+
 .startpage-horse {
   align-items: center;
   min-height: 100vh;
-  background-image: url('./images/backgroundimage-small.jpg');
+  background-image: url('/images/backgroundimage-small.jpg');
   background-repeat: no-repeat;
 
   .game-intro {
@@ -84,11 +115,14 @@
 
   }
 }
+
 .startpage-ghost {
   align-items: center;
   min-height: 100vh;
-  background-image: url('./images/scarycastle-small.jpg');
+  background-image: url('/images/scarycastle-small.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
+
 
   .game-intro {
     display: inline-flex;
@@ -135,6 +169,9 @@
 
 .selectionpage-ghost{
   background-color: #6f82ae;
+  min-height: 100vh;
+
+
 }
 
 .play-intro span {

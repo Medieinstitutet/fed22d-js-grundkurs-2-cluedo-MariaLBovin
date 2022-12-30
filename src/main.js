@@ -17,7 +17,8 @@ const entryPage = document.querySelector('.entrypage');
 const startPageHorse = document.querySelector('.startpage-horse');
 const startPageGhost = document.querySelector('.startpage-ghost');
 
-const beginGhostGame = document.querySelector('.ghost');
+const beginGhostGame = document.querySelector('#ghost');
+const beginHorseGameBtn = document.querySelector('#horse');
 const beginGameBtnHorse = document.querySelector('.begin-game-horse');
 const beginGameBtnGhost = document.querySelector('.begin-game-ghost');
 
@@ -106,7 +107,7 @@ function startRandomGame() {
 /**
  * Välj hästspel
  */
-const beginHorseGameBtn = document.querySelector('#horse');
+beginHorseGameBtn.addEventListener('click', gameStartStable);
 
 beginHorseGameBtn.addEventListener('click', () => {
   killersArray = horseKillersArray;
@@ -124,7 +125,6 @@ function gameStartStable() {
 /*
  *Välj spökspel
  */
-beginHorseGameBtn.addEventListener('click', gameStartStable);
 
 beginGhostGame.addEventListener('click', () => {
   killersArray = ghostKillerArray;

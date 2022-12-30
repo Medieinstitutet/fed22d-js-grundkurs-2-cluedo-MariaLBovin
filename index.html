@@ -1,22 +1,106 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- TODO: glöm ej att byta språk här -->
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
-  </head>
-  <body>
-    <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
-    </main>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skoluppgift till FED22/24 på Medieinstitutet">
+  <meta property="og:title" content="Clue Maria Larsson Bovin">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Skoluppgift till FED22/24 på Medieinstitutet">
+  <meta property="og:locale" content="sv-SE">
+  <link rel="icon" type="image/ico" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <title>Clue</title>
+</head>
+<body>
+  <main>
+    <section class="entrypage visible">
+      <article class="choose-game">
+        <h1>Välkommen till Clue, spelet för alla amatördetektiver!</h1>
+        <p>Välj din miljö</p>
+        <button id="ghost">Spökslottet Ghosthall</button>
+        <button id="horse" >Stall Guldhoven</button>
+      </article>
+      </section>
+    <section class="startpage-horse hidden">
+      <article class="game-intro">
+        <h1>Välkommen till stall Guldhoven!</h1>
+        <p>Hästen Silverhof av Guldhoven, fru Guldhovs prisbelönta hopphäst, har blivit mördad. Polisen vet inte hur de
+          ska lösa mordet och behöver din hjälp. Sex personer var på stallet den kvällen Silverhof dog.
+          Men vem har haft möjlighet och motiv? Det är upp till dig att ta reda på! </p>
+        <button class="begin-game-horse">Börja spela</button>
+      </article>
+      </section>
+      <section class="startpage-ghost hidden">
+        <article class="game-intro">
+          <h1>Välkommen till slottet Ghosthall!</h1>
+          <p>En vilsegången person har råkat söka nattlogi på slottet Ghosthall och inte överlevt natten. Men ingen vet vem som har 
+            begått mordet. Hjälp monstren lösa gåtan!
+          </p>
+          <button class="begin-game-ghost">Börja spela</button>
+        </article>
+      </section>
+    <section class="selectionpage hidden">
+      <article class="play-intro">
+        <h2>Lös gåtan!</h2>
+        <p>Välj en mördare, en plats och ett vapen och klicka sedan på Se ditt resultat.</p>
+        <span>PS. Vill du veta mer om de potentiella mördarna? Klicka på deras spelkort.</span>
+      </article>
+      <section class="all-killers">
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <article class="killer"></article>
+        <article class="textbox hidden"></article>
+        <section id="cluebox" class="hidden">
+          <article class="clue-box"></article>
+        </section>
+      </section>
+      <section class="all-places">
+        <article class="place"></article>
+        <article class="place"></article>
+        <article class="place"></article>
+        <article class="place"></article>
+        <article class="place"></article>
+        <article class="place"></article>
+      </section>
+      <section class="all-weapons">
+        <article class="weapon"></article>
+        <article class="weapon"></article>
+        <article class="weapon"></article>
+        <article class="weapon"></article>
+        <article class="weapon"></article>
+        <article class="weapon"></article>
+      </section>
+      <section class="buttons">
+        <button class="test-result">Se ditt resultat</button>
+        <button id="clue">Ledtråd</button>
+      </section>
+    </section>
+    <section id='resultpage' class="hidden">
+      <article class="result">
+        <h2 class="result-text"></h2>
+        <button class="play-again">Spela igen</button>
+      </article>
+    </section>
+    <section id="gameoverpage" class="hidden">
+      <article class="gameover">
+        <h2 class="gameover-text"></h2>
+        <input type="button" class="startover" value="Börja om spelet" onClick="window.location.reload(true)">
+      </article>
 
-    <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

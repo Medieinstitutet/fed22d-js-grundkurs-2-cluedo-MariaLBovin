@@ -58,10 +58,10 @@
 /************************************************************************
  *                               Regler för startsida                 
  ************************************************************************/
-.startpage {
+.startpage-horse {
   align-items: center;
   min-height: 100vh;
-  background-image: url('/images/backgroundimage-small.jpg');
+  background-image: url('./images/backgroundimage-small.jpg');
   background-repeat: no-repeat;
 
   .game-intro {
@@ -72,6 +72,32 @@
     width: 60vw;
     margin-top: 10%;
     background-color: rgba($color: #c2b2a4, $alpha: 80%);
+    color: #242424;
+    text-align: center;
+    padding: 5% 2%;
+  }
+
+  .begin-game {
+    @include buttons;
+
+    margin-top: 10%;
+
+  }
+}
+.startpage-ghost {
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./images/scarycastle-small.jpg');
+  background-repeat: no-repeat;
+
+  .game-intro {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    width: 60vw;
+    margin-top: 10%;
+    background-color: rgba($color: #9171d7, $alpha: 80%);
     color: #242424;
     text-align: center;
     padding: 5% 2%;
@@ -105,6 +131,10 @@
   .playintro p {
     font-size: 1em;
   }
+}
+
+.selectionpage-ghost{
+  background-color: #6f82ae;
 }
 
 .play-intro span {

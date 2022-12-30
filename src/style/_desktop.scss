@@ -12,6 +12,14 @@
     margin-top: 10vh;
 }
 
+.entrypage h1{
+font-size: 1.5rem;
+}
+
+.entrypage p {
+  font-size: 1.2rem;
+}
+
 .startpage-horse {
   background-image: url('/public/images/background-image-large.jpg');
   background-repeat: no-repeat;
@@ -20,6 +28,10 @@
   .game-intro {
     margin-bottom: 15%;
   }
+}
+
+.begin-game-horse, .begin-game-ghost {
+  margin-top: 20px;
 }
 
 #selectionpage {

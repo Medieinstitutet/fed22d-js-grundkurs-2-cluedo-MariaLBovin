@@ -271,7 +271,6 @@ function pickKiller(btn) {
     if (!button.classList.contains('active')) {
       button.setAttribute('disabled', 'disabled');
     }
-    console.log(selectedKillerBtn);
   });
 
   const killerName = btn.currentTarget.id.replace('killerbutton-', '');

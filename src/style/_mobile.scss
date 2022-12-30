@@ -75,14 +75,16 @@
     height: 50vh;
     width: 60vw;
     margin-top: 10%;
-    background-color: rgba($color: #484747, $alpha: 60%);
+    background-color: rgba($color: #3e5786, $alpha: 80%);
     font-weight: 600;
     text-align: center;
     padding: 5% 2%;
+    color: rgb(11, 11, 11);
   }
 
-    h1, p{
-    color: rgb(173, 33, 33);
+    h1, {
+    font-size: 20px;
+    
   }
   #ghost, #horse {
     @include buttons;
@@ -178,7 +180,7 @@
 }
 
 .play-intro span {
-  font-size: small;
+  font-size: 0.9em;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -190,7 +192,8 @@
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: 45px;
+    margin-top: 5px;
+    font-size: smaller;
   }
   
 }
@@ -199,7 +202,7 @@
   @include buttons;
 
   border-radius: 5%;
-  height: 35px;
+  height: 30px;
   width: 45px;
   align-self: center;
   font-size: smaller;
@@ -208,10 +211,10 @@
 
 .selectbutton {
   @include buttons;
-  text-align: center;
 
+  text-align: center;
   height: 25px;
-  width: 35px;
+  width: 45px;
   font-size: small;
   border-radius: 20%;
 }
@@ -231,18 +234,23 @@
   grid-template-rows: 1fr 1fr;
   gap: 2px 2px;
   margin-top: 2px;
+  
 }
-
 .all-killers section {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   width: 33vw;
+  height: 15vh;
 
   h2 {
     font-size: 0.8em;
     text-align: center;
   }
+}
+
+.killer  {
+  height: 15vh;
 }
 
 .all-places {
@@ -265,6 +273,10 @@
   }
 }
 
+.place {
+  height: 15vh;
+}
+
 .all-weapons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -283,6 +295,10 @@
     font-size: 0.8em;
     text-align: center;
   }
+}
+
+.weapon {
+  height: 15vh;
 }
 
 .buttons {
